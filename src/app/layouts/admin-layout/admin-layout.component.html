@@ -1,0 +1,47 @@
+<div style="height: 100vh;">
+  <nz-layout style="height: 100%;">
+    <nz-sider nzCollapsible [(nzCollapsed)]="isCollapsed" [nzTrigger]="null">
+      <div style="height: 70px">
+        <img src="assets/images/Logo1.jpg" alt="" style="height: 60px; width: 100px">
+      </div>
+      <ul nz-menu nzTheme="dark" nzMode="inline">
+        <li nz-submenu nzTitle="Users" nzIcon="user" *ngIf="true">
+          <ul>
+            <li nz-menu-item>Create User</li>
+            <li nz-menu-item>View Users</li>
+          </ul>
+        </li>
+        <li nz-submenu nzTitle="Blogs" nzIcon="team">
+          <ul>
+            <li nz-menu-item>Create Blog</li>
+            <li nz-menu-item>View Blogs</li>
+          </ul>
+        </li>
+        <li nz-submenu nzTitle="Contact Us" nzIcon="team">
+          <ul>
+            <li nz-menu-item>Responses</li>
+          </ul>
+        </li>
+      </ul>
+    </nz-sider>
+    <nz-layout>
+      <nz-header>
+        <span
+          class="trigger"
+          nz-icon
+          [nzType]="isCollapsed ? 'menu-unfold' : 'menu-fold'"
+          (click)="isCollapsed = !isCollapsed"
+        ></span>
+      </nz-header>
+      <nz-content>
+        <nz-breadcrumb>
+<!--          <nz-breadcrumb-item>User</nz-breadcrumb-item>-->
+<!--          <nz-breadcrumb-item>Bill</nz-breadcrumb-item>-->
+        </nz-breadcrumb>
+        <div class="inner-content" style="height: 80%">
+          <router-outlet></router-outlet>
+        </div>
+      </nz-content>
+    </nz-layout>
+  </nz-layout>
+</div>

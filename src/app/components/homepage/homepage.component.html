@@ -1,0 +1,140 @@
+<header class="bg-white py-8"> <!-- Increased py value to make the navbar taller -->
+  <div class="container mx-auto flex items-center justify-between">
+    <div class="flex items-center"> <!-- Added a container for the logo and site title -->
+      <img src="assets/images/Logo1.jpg" alt="Logo" class="h-24 w-auto mr-2"> <!-- Increased the height to h-24 -->
+      <h1 class="text-gray-600 text-2xl font-bold">APITT BLOG </h1>
+    </div>
+    <nav>
+      <ul class="flex space-x-4 text-black text-2xl"> <!-- Changed text-xl to text-2xl for even bigger font size -->
+        <li><a href="#" class="hover:underline">Home</a></li>
+        <li><a href="#" class="hover:underline">Business & IT</a></li>
+        <li><a href="#" class="hover:underline">Law</a></li>
+        <li><a href="#" class="hover:underline">Contact Us</a></li>
+        <li><a href="#" class="hover:underline">Login</a></li>
+
+
+      </ul>
+    </nav>
+  </div>
+</header>
+
+
+
+
+
+<section class="bg-gray-900 text-white py-96 relative">
+  <img src="assets/images/whats-university-like-accepted-students.jpg" alt="Welcome Image" class="absolute inset-0 w-full h-full object-cover">
+  <div class="absolute inset-0 bg-blue-300 opacity-50"></div>
+  <div class="container mx-auto text-center relative">
+    <div class="absolute inset-0 flex flex-col justify-center items-center">
+      <h1 class="text-7xl font-bold mb-6">Student Blog</h1> <!-- Increased text size to text-7xl -->
+      <p class="text-3xl">APIIT Insights: Where Knowledge Meets Inspiration, Community Connects,<br> Ideas Flourish, Innovation Takes Flight,<br> and Boundless Opportunities Await.</p> <!-- Increased text size to text-3xl -->
+    </div>
+  </div>
+</section>
+
+
+<!-- Testimonial Section -->
+<section class="container mx-auto py-32 relative"> <!-- Increased py-32 for more vertical padding -->
+  <h2 class="text-3xl font-bold mb-4">Testimonials</h2>
+
+  <nz-carousel [nzEffect]="effect" [nzAutoPlay]="true">
+    @for (index of array; track index) {
+      <div nz-carousel-content>
+
+        <div class="testimonial-card border rounded-lg overflow-hidden shadow-md bg-white " style="width: 200px">
+          <div class="p-4">
+            <p class="text-gray-600">"Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua."</p>
+            <p class="text-blue-500 font-semibold mt-2">- John Doe</p>
+          </div>
+        </div>
+        <!-- Testimonial Card 2 -->
+        <div class="testimonial-card border rounded-lg overflow-hidden shadow-md bg-white ">
+          <div class="p-4">
+            <p class="text-gray-600">"Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat."</p>
+            <p class="text-blue-500 font-semibold mt-2">- Jane Smith</p>
+          </div>
+        </div>
+        <!-- Testimonial Card 3 -->
+
+      </div>
+        }
+  </nz-carousel>
+</section>
+
+
+
+
+
+
+<!-- News & Events Section -->
+<section class="bg-gray-200 py-20">
+  <div class="container mx-auto text-center">
+    <h2 class="text-3xl font-bold mb-4">News & Events</h2>
+    <!-- News & Events Content -->
+    <!-- Add your content here -->
+  </div>
+</section>
+
+<!-- Blog Section -->
+<section class="container mx-auto my-8">
+  <h2 class="text-3xl font-bold mb-4">Latest Blog Posts</h2>
+
+  <!-- Search Bar -->
+  <!-- Search Bar -->
+  <div class="flex items-center mt-8 mb-10 pl-10">
+    <div class="relative">
+      <input type="text" placeholder="Search..." class="px-4 py-3 pl-12 pr-4 border border-gray-300 rounded-full focus:outline-none focus:border-blue-500 bg-gray-100 text-gray-700" style="height: auto;">
+      <div class="absolute inset-y-0 left-0 flex items-center pl-3">
+        <svg class="h-5 w-5 text-gray-500" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-6a8 8 0 11-16 0 8 8 0 0116 0zm-2 0a6 6 0 11-12 0 6 6 0 0112 0zM9 9a2 2 0 114 0 2 2 0 01-4 0z"></path>
+        </svg>
+      </div>
+    </div>
+  </div>
+
+
+
+
+  <!-- Blog Post List -->
+  <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+    <!-- Row 1 -->
+    <!-- Blog Post Card 1 -->
+    <div class="border rounded-lg overflow-hidden shadow-md bg-white" *ngFor="let blog of blogs">
+      <!-- Blog Post Image -->
+      <img src="assets/images/whats-university-like-accepted-students.jpg" alt="Blog Post Image" class="w-full">
+      <!-- Blog Post Content -->
+      <div class="p-4">
+        <h3 class="text-xl font-semibold mb-2">Blog Post Title</h3>
+        <p class="text-gray-600">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
+        <a href="#" class="text-blue-500 font-semibold mt-2 hover:underline">Read More</a>
+      </div>
+    </div>
+    <!-- Repeat for other blog posts in Row 1 -->
+
+    <!-- Row 2 -->
+    <!-- Blog Post Card 1 -->
+
+  </div>
+  <div class=" mt-8" style="display: flex; justify-content: flex-end">
+    <nz-pagination [nzPageIndex]="1" [nzTotal]="50" ></nz-pagination>
+  </div>
+</section>
+<footer class="bg-gray-900 py-8 mt-32">
+  <div class="container mx-auto text-white px-4 flex flex-col md:flex-row justify-between items-center">
+    <div class="mb-6 md:mb-0">
+      <p class="text-gray-400 text-sm">This is a short description or tagline for your site. Use this space to add additional information.</p>
+      <p class="mt-4">&copy; 2024 Blog Site. All rights reserved.</p>
+    </div>
+    <div>
+      <h3 class="text-xl font-semibold mb-2 text-right">Stay Connected</h3>
+      <ul class="space-y-2 text-right">
+        <li><a href="#" class="hover:text-gray-400">Home</a></li>
+        <li><a href="#" class="hover:text-gray-400">About Us</a></li>
+        <li><a href="#" class="hover:text-gray-400">Services</a></li>
+        <li><a href="#" class="hover:text-gray-400">Contact</a></li>
+      </ul>
+    </div>
+  </div>
+</footer>
+

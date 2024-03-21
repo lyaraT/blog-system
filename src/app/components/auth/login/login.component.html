@@ -1,0 +1,80 @@
+<section id="login">
+
+  <div class="min-h-screen h-screen flex">
+    <div class="w-1/2 relative hidden md:block">
+      <img src="assets/images/mainhomepage.jpg" class="w-full h-full object-cover"/>
+      <div class=" hidden md:block absolute top-0 left-0 w-full h-full bg-black opacity-50"></div>
+    </div>
+
+
+    <div class="w-full main-content md:w-1/2 p-8 flex justify-center items-center">
+      <nz-card
+        [nzCover]="coverTemplate" style="background: white">
+        <div class="form-content">
+          <div class="mb-7">
+            <h3 class="form-text">Member Portal</h3>
+            <p class="font-normal form-text">Login to continue</p>
+          </div>
+          <div>
+            <form [formGroup]="loginForm">
+
+              <p style="color: #64748B" class="font-normal mb-1">Email</p>
+              <nz-form-item>
+                <nz-form-control nzErrorTip="Email is required">
+                  <nz-input-group nzSize="large">
+                    <input type="text" nz-input  formControlName="email" placeholder="Email"/>
+                  </nz-input-group>
+                </nz-form-control>
+              </nz-form-item>
+
+              <p style="color: #64748B" class="font-normal mb-1">Password</p>
+              <nz-form-item>
+                <nz-form-control nzErrorTip="Password is required">
+                  <nz-input-group [nzSuffix]="suffixTemplate" nzSize="large">
+                    <input [type]="passwordVisible ? 'text' : 'password'" nz-input
+                           placeholder="Password" formControlName="password"/>
+                  </nz-input-group>
+                  <ng-template #suffixTemplate>
+                    <i class="cursor-on" nz-icon
+                       [nzType]="passwordVisible ? 'eye-invisible' : 'eye'"
+                       (click)="passwordVisible = !passwordVisible"></i>
+                  </ng-template>
+                </nz-form-control>
+              </nz-form-item>
+
+              <div nz-row class="login-form-margin">
+                  <span style="text-decoration: underline">
+                    <a class="form-text" routerLink="/auth/forgot-password">Forgot Password?</a>
+                  </span>
+              </div>
+
+              <button nz-button nzSize="large" class="login-form-button" [nzType]="'primary'" (click)="onSubmit()" [disabled]="loginForm.invalid">
+                Login
+              </button>
+            </form>
+          </div>
+        </div>
+      </nz-card>
+
+      <div class="footer-info">
+        <p class="font-normal text-xs">
+          <span class="font-semibold">Apiit</span>  2024 All Rights Reserved
+        </p>
+      </div>
+
+    </div>
+
+    <ng-template #coverTemplate>
+      <div class="flex card-banner">
+        <div>
+          <img class="card-banner-img" alt="logo" >
+        </div>
+        <div class="banner-text">
+          <p class="font-semibold banner-content-title text-xl" style="color: white; margin-bottom: 5px">SRI LANKA JUDGES' INSTITUTE</p>
+          <p class="font-normal banner-content text-xs" style="color: white">COMMITTED TO IMPROVE QUALITY OF JUSTICE</p>
+        </div>
+      </div>
+    </ng-template>
+
+  </div>
+</section>
