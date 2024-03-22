@@ -11,6 +11,7 @@ import {ViewComponent} from "./components/contactUs/view/view.component";
 import {ViewSingleComponent} from "./components/contactUs/view-single/view-single.component";
 import {AdminLayoutComponent} from "./layouts/admin-layout/admin-layout.component";
 import {ForgotPasswordComponent} from "./components/auth/forgot-password/forgot-password.component";
+import {RegistrationComponent} from "./components/auth/registration/registration.component";
 
 export const routes: Routes = [
 
@@ -33,6 +34,10 @@ export const routes: Routes = [
       {
         path: 'reset-password',
         component: LoginComponent
+      },
+      {
+        path: 'registration',
+        component: RegistrationComponent
       },
     ]
   },

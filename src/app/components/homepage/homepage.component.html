@@ -1,11 +1,11 @@
-<header class="bg-white py-8"> <!-- Increased py value to make the navbar taller -->
+<header class="bg-gray-900 py-8"> <!-- Increased py value to make the navbar taller -->
   <div class="container mx-auto flex items-center justify-between">
     <div class="flex items-center"> <!-- Added a container for the logo and site title -->
       <img src="assets/images/Logo1.jpg" alt="Logo" class="h-24 w-auto mr-2"> <!-- Increased the height to h-24 -->
-      <h1 class="text-gray-600 text-2xl font-bold">APITT BLOG </h1>
+      <h1 class="text-white text-2xl font-bold">APITT BLOG </h1>
     </div>
     <nav>
-      <ul class="flex space-x-4 text-black text-2xl"> <!-- Changed text-xl to text-2xl for even bigger font size -->
+      <ul class="flex space-x-4 text-white text-2xl"> <!-- Changed text-xl to text-2xl for even bigger font size -->
         <li><a href="#" class="hover:underline">Home</a></li>
         <li><a href="#" class="hover:underline">Business & IT</a></li>
         <li><a href="#" class="hover:underline">Law</a></li>
@@ -44,17 +44,18 @@
 
         <div class="testimonial-card border rounded-lg overflow-hidden shadow-md bg-white " style="width: 200px">
           <div class="p-4">
-            <p class="text-gray-600">"Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua."</p>
+            <p class="text-gray-600">"breadddd ipsum dolor sit hello, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua."</p>
             <p class="text-blue-500 font-semibold mt-2">- John Doe</p>
           </div>
         </div>
         <!-- Testimonial Card 2 -->
         <div class="testimonial-card border rounded-lg overflow-hidden shadow-md bg-white ">
           <div class="p-4">
-            <p class="text-gray-600">"Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat."</p>
+            <p class="text-gray-600">"helloooooud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat."</p>
             <p class="text-blue-500 font-semibold mt-2">- Jane Smith</p>
           </div>
         </div>
+
         <!-- Testimonial Card 3 -->
 
       </div>
@@ -66,32 +67,65 @@
 
 
 
-
 <!-- News & Events Section -->
 <section class="bg-gray-200 py-20">
   <div class="container mx-auto text-center">
     <h2 class="text-3xl font-bold mb-4">News & Events</h2>
-    <!-- News & Events Content -->
-    <!-- Add your content here -->
+
+    <nz-carousel [nzEffect]="effect" [nzAutoPlay]="true">
+      @for (index of array; track index) {
+        <div nz-carousel-content>
+          <div class="flex flex-col lg:flex-row justify-center md:mt-24 lg:justify-between items-center">
+            <!-- Image Div -->
+            <div class="lg:w-1/2">
+              <img src="assets/images/whats-university-like-accepted-students.jpg" alt="Your Image Alt Text" class="w-full h-auto object-cover rounded-lg shadow-md mt-6 lg:mt-0">
+            </div>
+
+            <!-- Content Div -->
+            <div class="lg:w-1/2 px-4 mt-10 lg:mt-0">
+              <!-- Heading -->
+              <h3 class="text-2xl font-bold mb-2 text-black">Avurudu Celebrations</h3>
+              <!-- Paragraph -->
+              <p class="text-lg text-black leading-normal mt-8 lg:mt-12" style="font-size: 18px;">Avurudu, also known as Sinhala and Tamil New Year, is an important cultural festival celebrated by the Sinhalese and Tamil communities in Sri Lanka. It marks the beginning of the new year according to the traditional Sinhala and Tamil calendars. The festival usually falls on April 13th or 14th each year, coinciding with the astrological transition of the sun from Pisces to Aries. Avurudu is a time for family gatherings, traditional rituals, delicious food, and various festive activities.</p>
+              <!-- Read More Button -->
+              <button nz-button nzType="primary" class="mt-6 max-w-xs bg-white text-black px-3 py-3 text-sm h-12">Read More</button>
+            </div>
+
+          </div>
+        </div>
+      }
+    </nz-carousel>
   </div>
 </section>
+
 
 <!-- Blog Section -->
 <section class="container mx-auto my-8">
   <h2 class="text-3xl font-bold mb-4">Latest Blog Posts</h2>
 
-  <!-- Search Bar -->
-  <!-- Search Bar -->
-  <div class="flex items-center mt-8 mb-10 pl-10">
+  <div class="flex items-center mt-8 mb-10 pl-10 justify-between gap-4"> <!-- Adjusted for spacing and alignment -->
     <div class="relative">
-      <input type="text" placeholder="Search..." class="px-4 py-3 pl-12 pr-4 border border-gray-300 rounded-full focus:outline-none focus:border-blue-500 bg-gray-100 text-gray-700" style="height: auto;">
-      <div class="absolute inset-y-0 left-0 flex items-center pl-3">
+      <input type="text" placeholder="Search..."
+             class="px-8 py-4 text-lg border border-gray-300 rounded-full focus:outline-none focus:border-blue-500 bg-gray-100 text-gray-700"
+             style="width: 200px;"> <!-- Set width explicitly -->
+      <div class="absolute inset-y-0 left-0 flex items-center pl-3 pointer-events-none">
         <svg class="h-5 w-5 text-gray-500" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-6a8 8 0 11-16 0 8 8 0 0116 0zm-2 0a6 6 0 11-12 0 6 6 0 0112 0zM9 9a2 2 0 114 0 2 2 0 01-4 0z"></path>
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                d="M21 21l-6-6m2-6a8 8 0 11-16 0 8 8 0 0116 0zm-2 0a6 6 0 11-12 0 6 6 0 0112 0zM9 9a2 2 0 114 0 2 2 0 01-4 0z">
+          </path>
         </svg>
       </div>
     </div>
+    <div>
+      <button class="px-8 py-4 text-lg border border-gray-300 text-gray-700 rounded-full focus:outline-none focus:border-blue-500 bg-gray-100 hover:bg-gray-200 transition-colors"
+              style="width: 200px; border-radius: 0;"> <!-- Square filter button with specific width -->
+        Filter
+      </button>
+    </div>
   </div>
+
+
+
 
 
 

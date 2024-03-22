@@ -12,13 +12,13 @@
         [nzCover]="coverTemplate" style="background: white">
         <div class="form-content">
           <div class="mb-7">
-            <h3 class="form-text">Member Portal</h3>
+            <h3 class="form-text">User</h3>
             <p class="font-normal form-text">Login to continue</p>
           </div>
           <div>
             <form [formGroup]="loginForm">
 
-              <p style="color: #64748B" class="font-normal mb-1">Email</p>
+              <p style="color: #64748B; font-size: 20px;"  class="font-normal mb-1">Email</p>
               <nz-form-item>
                 <nz-form-control nzErrorTip="Email is required">
                   <nz-input-group nzSize="large">
@@ -27,7 +27,7 @@
                 </nz-form-control>
               </nz-form-item>
 
-              <p style="color: #64748B" class="font-normal mb-1">Password</p>
+              <p style="color: #64748B; font-size: 20px;" class="font-normal mb-1">Password</p>
               <nz-form-item>
                 <nz-form-control nzErrorTip="Password is required">
                   <nz-input-group [nzSuffix]="suffixTemplate" nzSize="large">
@@ -67,11 +67,11 @@
     <ng-template #coverTemplate>
       <div class="flex card-banner">
         <div>
-          <img class="card-banner-img" alt="logo" >
+          <img src="assets/images/Logo1.jpg" class="card-banner-img" alt="logo" >
         </div>
         <div class="banner-text">
-          <p class="font-semibold banner-content-title text-xl" style="color: white; margin-bottom: 5px">SRI LANKA JUDGES' INSTITUTE</p>
-          <p class="font-normal banner-content text-xs" style="color: white">COMMITTED TO IMPROVE QUALITY OF JUSTICE</p>
+          <p class="font-semibold banner-content-title text-xl" style="color: white; margin-bottom: 5px">APIIT BLOG SYSTEM</p>
+          <p class="font-normal banner-content text-xs" style="color: white">INSPIRE LOVE FOR LEARNING</p>
         </div>
       </div>
     </ng-template>

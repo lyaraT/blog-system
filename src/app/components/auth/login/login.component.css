@@ -72,10 +72,10 @@ nz-card{
 .form-content{
   padding: 0 10px 10px 10px;
 }
-
 .form-text{
   color: #444444;
   margin-bottom: 0;
+  font-size: 20px;
 }
 .ant-form-item {
   margin-bottom: 8px !important;

@@ -2,13 +2,14 @@
   text-align: center;
   height: 160px;
   line-height: 160px;
-  background: #364d79;
+  background: #f0f0f6;
   color: #fff;
   overflow: hidden;
 }
 
 h3 {
-  color: #fff;
+  color: #000;
   margin-bottom: 0;
   user-select: none;
 }
+
