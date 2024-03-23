@@ -17,3 +17,10 @@ export class HomepageComponent {
   effect = 'scrollx';
 
 }
+export class AppComponent {
+  testimonials = [
+    { name: 'John Doe', content: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit.' },
+    { name: 'Jane Doe', content: 'Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.' },
+    { name: 'Alice Smith', content: 'Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.' }
+  ];
+}

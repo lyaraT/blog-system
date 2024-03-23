@@ -34,34 +34,95 @@
 </section>
 
 
-<!-- Testimonial Section -->
-<section class="container mx-auto py-32 relative"> <!-- Increased py-32 for more vertical padding -->
+
+<section class="container mx-auto my-8 mt-56 m-20"> <!-- Adjusted margin-top to mt-40 -->
   <h2 class="text-3xl font-bold mb-4">Testimonials</h2>
 
-  <nz-carousel [nzEffect]="effect" [nzAutoPlay]="true">
-    @for (index of array; track index) {
-      <div nz-carousel-content>
-
-        <div class="testimonial-card border rounded-lg overflow-hidden shadow-md bg-white " style="width: 200px">
-          <div class="p-4">
-            <p class="text-gray-600">"breadddd ipsum dolor sit hello, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua."</p>
-            <p class="text-blue-500 font-semibold mt-2">- John Doe</p>
-          </div>
+  <div class="w-full flex testimonials-container overflow-x-auto scrollbar-hide">
+    <!-- Testimonial Card 1 -->
+    <div class="w-1/5 px-4 flex-shrink-0 rounded-lg"> <!-- Changed width class to w-1/5 and added rounded-lg class -->
+      <div class="bg-white rounded-lg shadow-md p-16"> <!-- Changed padding to p-16 -->
+        <div class="h-64 overflow-y-auto"> <!-- Added max height and overflow for the text area -->
+          <p class="text-gray-600 text-center mb-6 text-lg">"APIIT provides an exceptional learning environment and resources."</p>
         </div>
-        <!-- Testimonial Card 2 -->
-        <div class="testimonial-card border rounded-lg overflow-hidden shadow-md bg-white ">
-          <div class="p-4">
-            <p class="text-gray-600">"helloooooud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat."</p>
-            <p class="text-blue-500 font-semibold mt-2">- Jane Smith</p>
-          </div>
-        </div>
-
-        <!-- Testimonial Card 3 -->
-
+        <h3 class="text-lg font-semibold text-gray-600 mb-0 text-center">Samantha Silva (Professor of Computer Science)</h3>
       </div>
-        }
-  </nz-carousel>
+    </div>
+
+    <!-- Testimonial Card 2 -->
+    <div class="w-1/5 px-4 flex-shrink-0 rounded-lg"> <!-- Changed width class to w-1/5 and added rounded-lg class -->
+      <div class="bg-white rounded-lg shadow-md p-16"> <!-- Changed padding to p-16 -->
+        <div class="h-64 overflow-y-auto"> <!-- Added max height and overflow for the text area -->
+          <p class="text-gray-600 text-center mb-6 text-lg">"Studying at APIIT has been an enriching experience, helping me grow both academically and personally."</p>
+        </div>
+        <h3 class="text-lg font-semibold text-gray-600 mb-0 text-center">Dilshan Perera (Computer Science Student)</h3>
+      </div>
+    </div>
+
+    <!-- Testimonial Card 3 -->
+    <div class="w-1/5 px-4 flex-shrink-0 rounded-lg"> <!-- Changed width class to w-1/5 and added rounded-lg class -->
+      <div class="bg-white rounded-lg shadow-md p-16"> <!-- Changed padding to p-16 -->
+        <div class="h-64 overflow-y-auto"> <!-- Added max height and overflow for the text area -->
+          <p class="text-gray-600 text-center mb-6 text-lg">"APIIT offers a supportive community and excellent faculty, making it a great place to learn and grow."</p>
+        </div>
+        <h3 class="text-lg font-semibold text-gray-600 mb-0 text-center">Kavindu Fernando (Software Engineering Student)</h3>
+      </div>
+    </div>
+
+    <!-- Testimonial Card 4 -->
+    <div class="w-1/5 px-4 flex-shrink-0 rounded-lg"> <!-- Changed width class to w-1/5 and added rounded-lg class -->
+      <div class="bg-white rounded-lg shadow-md p-16"> <!-- Changed padding to p-16 -->
+        <div class="h-64 overflow-y-auto"> <!-- Added max height and overflow for the text area -->
+          <p class="text-gray-600 text-center mb-6 text-lg">"I'm grateful for the opportunities APIIT has provided me, helping me become a well-rounded professional."</p>
+        </div>
+        <h3 class="text-lg font-semibold text-gray-600 mb-0 text-center">Nuwan Rajapakse (Artificial Intelligence Researcher)</h3>
+      </div>
+    </div>
+
+    <!-- Testimonial Card 5 -->
+    <div class="w-1/5 px-4 flex-shrink-0 rounded-lg"> <!-- Changed width class to w-1/5 and added rounded-lg class -->
+      <div class="bg-white rounded-lg shadow-md p-16"> <!-- Changed padding to p-16 -->
+        <div class="h-64 overflow-y-auto"> <!-- Added max height and overflow for the text area -->
+          <p class="text-gray-600 text-center mb-6 text-lg">"APIIT's emphasis on practical skills alongside theoretical knowledge has been invaluable for my career."</p>
+        </div>
+        <h3 class="text-lg font-semibold text-gray-600 mb-0 text-center">Sachini Bandara (Data Science Student)</h3>
+      </div>
+    </div>
+
+    <!-- Testimonial Card 6 -->
+    <div class="w-1/5 px-4 flex-shrink-0 rounded-lg"> <!-- Changed width class to w-1/5 and added rounded-lg class -->
+      <div class="bg-white rounded-lg shadow-md p-16"> <!-- Changed padding to p-16 -->
+        <div class="h-64 overflow-y-auto"> <!-- Added max height and overflow for the text area -->
+          <p class="text-gray-600 text-center mb-6 text-lg">"APIIT's collaborative environment fosters innovation and critical thinking, preparing students for real-world challenges."</p>
+        </div>
+        <h3 class="text-lg font-semibold text-gray-600 mb-0 text-center">Malith Perera (Head of Department, Computer Engineering)</h3>
+      </div>
+    </div>
+
+    <!-- Testimonial Card 7 -->
+    <div class="w-1/5 px-4 flex-shrink-0 rounded-lg"> <!-- Changed width class to w-1/5 and added rounded-lg class -->
+      <div class="bg-white rounded-lg shadow-md p-16"> <!-- Changed padding to p-16 -->
+        <div class="h-64 overflow-y-auto"> <!-- Added max height and overflow for the text area -->
+          <p class="text-gray-600 text-center mb-6 text-lg">"My time at APIIT has been instrumental in shaping my career trajectory, thanks to its world-class education and mentorship."</p>
+        </div>
+        <h3 class="text-lg font-semibold text-gray-600 mb-0 text-center">Isuru Fernando (Software Engineering Student)</h3>
+      </div>
+    </div>
+
+    <!-- Testimonial Card 8 -->
+    <div class="w-1/5 px-4 flex-shrink-0 rounded-lg"> <!-- Changed width class to w-1/5 and added rounded-lg class -->
+      <div class="bg-white rounded-lg shadow-md p-16"> <!-- Changed padding to p-16 -->
+        <div class="h-64 overflow-y-auto"> <!-- Added max height and overflow for the text area -->
+          <p class="text-gray-600 text-center mb-6 text-lg">"APIIT's diverse community and industry connections provide endless opportunities for growth and development."</p>
+        </div>
+        <h3 class="text-lg font-semibold text-gray-600 mb-0 text-center">Chamath Silva (IT Business Management Student)</h3>
+      </div>
+    </div>
+
+
+  </div>
 </section>
+
 
 
 
@@ -128,8 +189,6 @@
 
 
 
-
-
   <!-- Blog Post List -->
   <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
     <!-- Row 1 -->
@@ -154,6 +213,7 @@
     <nz-pagination [nzPageIndex]="1" [nzTotal]="50" ></nz-pagination>
   </div>
 </section>
+
 <footer class="bg-gray-900 py-8 mt-32">
   <div class="container mx-auto text-white px-4 flex flex-col md:flex-row justify-between items-center">
     <div class="mb-6 md:mb-0">
