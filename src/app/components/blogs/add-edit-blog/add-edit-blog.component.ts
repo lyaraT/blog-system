@@ -42,8 +42,8 @@ export class AddEditBlogComponent implements OnInit {
       author: [null, Validators.compose([Validators.required])],
       imgUrl: [null],
       type: [null, Validators.compose([Validators.required])],
-      isActive: [true,],
-      status: [false,],
+      isActive: [true, Validators.compose([Validators.required])],
+      status: [false, Validators.compose([Validators.required])],
     });
   }
 
@@ -52,8 +52,10 @@ export class AddEditBlogComponent implements OnInit {
     const user = this.authService.getLoggedInUser();
 
     if (user.role === 'Admin'){
-      this.blogForm.get('status')?.patchValue(true);
+      this.blogForm.get('status')?.patchValue(1);
     }
+
+    console.log(this.blogForm.getRawValue())
     this.blogService.createBlog(this.blogForm.getRawValue()).subscribe(()=>{
       this.msg.create('success','Blog Created - Sent for Admin Moderation');
       this.blogForm.reset()
