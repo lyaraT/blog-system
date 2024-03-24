@@ -9,7 +9,7 @@ import {
 import {NzBreadCrumbComponent, NzBreadCrumbItemComponent} from "ng-zorro-antd/breadcrumb";
 import {NzIconDirective} from "ng-zorro-antd/icon";
 import {NzMenuDirective, NzMenuItemComponent, NzSubMenuComponent} from "ng-zorro-antd/menu";
-import {RouterOutlet} from "@angular/router";
+import {RouterLink, RouterOutlet} from "@angular/router";
 import {CommonModule} from "@angular/common";
 
 @Component({
@@ -28,7 +28,8 @@ import {CommonModule} from "@angular/common";
     NzMenuDirective,
     NzSiderComponent,
     RouterOutlet,
-    CommonModule
+    CommonModule,
+    RouterLink
   ],
   templateUrl: './admin-layout.component.html',
   styleUrl: './admin-layout.component.css'

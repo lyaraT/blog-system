@@ -5,21 +5,21 @@
         <img src="assets/images/Logo1.jpg" alt="" style="height: 60px; width: 100px">
       </div>
       <ul nz-menu nzTheme="dark" nzMode="inline">
-        <li nz-submenu nzTitle="Users" nzIcon="user" *ngIf="true">
-          <ul>
-            <li nz-menu-item>Create User</li>
-            <li nz-menu-item>View Users</li>
-          </ul>
-        </li>
         <li nz-submenu nzTitle="Blogs" nzIcon="team">
           <ul>
-            <li nz-menu-item>Create Blog</li>
-            <li nz-menu-item>View Blogs</li>
+            <li nz-menu-item routerLink="/admin/blogs/add-edit">Create Blog</li>
+            <li nz-menu-item routerLink="/admin/blogs">View Blogs</li>
+          </ul>
+        </li>
+        <li nz-submenu nzTitle="Users" nzIcon="user" *ngIf="true">
+          <ul>
+            <li nz-menu-item routerLink="/admin/users/add-edit">Create User</li>
+            <li nz-menu-item routerLink="/admin/users">View Users</li>
           </ul>
         </li>
         <li nz-submenu nzTitle="Contact Us" nzIcon="team">
           <ul>
-            <li nz-menu-item>Responses</li>
+            <li nz-menu-item routerLink="/admin/contact-us">Responses</li>
           </ul>
         </li>
       </ul>
@@ -38,7 +38,7 @@
 <!--          <nz-breadcrumb-item>User</nz-breadcrumb-item>-->
 <!--          <nz-breadcrumb-item>Bill</nz-breadcrumb-item>-->
         </nz-breadcrumb>
-        <div class="inner-content" style="height: 80%">
+        <div class="inner-content" style="height: auto">
           <router-outlet></router-outlet>
         </div>
       </nz-content>

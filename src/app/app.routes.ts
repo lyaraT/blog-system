@@ -14,8 +14,11 @@ import {ForgotPasswordComponent} from "./components/auth/forgot-password/forgot-
 import {RegistrationComponent} from "./components/auth/registration/registration.component";
 
 export const routes: Routes = [
-
-
+  {
+    path: '',
+    redirectTo: '/homepage',
+    pathMatch: 'full',
+  },
   {
     path:'homepage',
     component: HomepageComponent

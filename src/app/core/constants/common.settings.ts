@@ -6,6 +6,11 @@ export class SETTINGS {
   public static BASE_API = 'http://localhost:3000';
   // public static BASE_API = environment.baseUrl; // do not change this
 
+  public static KEYS = {
+    SECRET: 'iIUsWtNZcf',
+  };
+
+
   public static REGEX = {
     PASSWORD: {
       EXP: '^(?=.*?[A-Z])(?=.*?[a-z])(?=.*?[0-9]).{8,}$',

@@ -8,7 +8,10 @@ import {NzDatePickerComponent} from "ng-zorro-antd/date-picker";
 import {NzCardComponent} from "ng-zorro-antd/card";
 import {FormBuilder, FormGroup, ReactiveFormsModule, Validators} from "@angular/forms";
 import {UserService} from "../../../core/services/user.service";
-import { DatePipe } from '@angular/common';
+import {DatePipe} from '@angular/common';
+import {NzMessageService} from "ng-zorro-antd/message";
+import {NgxUiLoaderService} from "ngx-ui-loader";
+import {Router} from "@angular/router";
 
 @Component({
   selector: 'app-registration',
@@ -28,17 +31,25 @@ import { DatePipe } from '@angular/common';
     NzRowDirective,
     ReactiveFormsModule,
   ],
+  providers: [
+    DatePipe
+  ],
   templateUrl: './registration.component.html',
   styleUrl: './registration.component.css'
 })
-export class RegistrationComponent implements OnInit{
+export class RegistrationComponent implements OnInit {
 
   userData: any;
   userForm!: FormGroup;
+
   constructor(private userService: UserService,
               private formBuilder: FormBuilder,
-              private datePipe: DatePipe) {
+              private datePipe: DatePipe,
+              private message: NzMessageService,
+              private ngxLoader: NgxUiLoaderService,
+              private router: Router) {
   }
+
   ngOnInit(): void {
     this.initRegistrationForm();
   }
@@ -46,13 +57,14 @@ export class RegistrationComponent implements OnInit{
   initRegistrationForm(): void {
     this.userForm = this.formBuilder.group({
       email: [null, Validators.compose([Validators.required, Validators.email]),],
-      fullname: [null, Validators.compose([Validators.required, Validators.pattern(/^[a-zA-Z]+$/)])],
+      fullname: [null, Validators.compose([Validators.required, Validators.pattern(/^[^0-9]+$/)])],
       role: [null, Validators.compose([Validators.required])],
       // password: [null, Validators.compose([Validators.required])],
       nic: [null, Validators.compose([Validators.required])],
       dob: [null, Validators.compose([Validators.required])],
       mobileNo: [null, Validators.compose([Validators.required])],
-      isActive: [true, Validators.compose([Validators.required])],
+      isActive: [true,],
+      isAuthenticated: [false,],
     });
   }
 
@@ -60,11 +72,14 @@ export class RegistrationComponent implements OnInit{
   onSubmit(): void {
     // @ts-ignore
     const originalDate = new Date(this.userForm.get('dob').value);
+    this.ngxLoader.start();
     this.userForm.get('dob')?.patchValue(this.datePipe.transform(originalDate, 'yyyy-MM-dd'));
-    console.log(this.userForm.getRawValue())
-    this.userService.createUser(this.userForm.getRawValue()).then(()=>{
-      console.log(this.userForm.getRawValue())
+    this.userService.createUser(this.userForm.getRawValue()).then(() => {
       this.userForm.reset();
+      this.ngxLoader.stop();
+      this.router.navigate(['/homepage'])
+    }).catch((error) => {
+      this.ngxLoader.stop()
     })
   }
 

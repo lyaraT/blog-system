@@ -9,6 +9,8 @@ import {FormBuilder, FormGroup, ReactiveFormsModule, Validators} from "@angular/
 import {NzCardComponent} from "ng-zorro-antd/card";
 import {NzDatePickerComponent} from "ng-zorro-antd/date-picker";
 import {NzOptionComponent, NzSelectComponent} from "ng-zorro-antd/select";
+import {UserService} from "../../../core/services/user.service";
+import {AuthService} from "../../../core/services/auth.service";
 
 @Component({
   selector: 'app-login',
@@ -40,7 +42,7 @@ export class LoginComponent implements OnInit {
   loginForm!: FormGroup;
   passwordVisible = false;
 
-  constructor(private fb: FormBuilder, private router: Router) {
+  constructor(private fb: FormBuilder, private router: Router, private authService: AuthService) {
   }
 
   ngOnInit(): void {
@@ -56,12 +58,19 @@ export class LoginComponent implements OnInit {
   }
 
   onSubmit(): void {
-    console.log(this.loginForm?.getRawValue());
+    this.authService.login(this.loginForm.getRawValue()).then(()=>{
+      this.navigateToAdminSection();
+    })
   }
 
   navigateToForgotPassword(): void {
     this.router.navigate(['/auth/forgot-password']);
   }
 
-
+  navigateToAdminSection(): void {
+    this.router.navigate(['/admin/blogs']);
+  }
+  navToRegistration(): void {
+    this.router.navigate(['/auth/registration']);
+  }
 }
