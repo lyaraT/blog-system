@@ -68,7 +68,8 @@ export class ViewBlogsComponent implements OnInit {
       pageIndex: this.pageSize.pageIndex,
       filters: {
         searchValue: this.searchValue,
-        status: true
+        status: 0,
+        type:null
       }
     }
     this.blogService.getBlogsPaged(payload).subscribe((res) => {

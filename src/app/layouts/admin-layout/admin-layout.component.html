@@ -8,12 +8,14 @@
         <li nz-submenu nzTitle="Blogs" nzIcon="team">
           <ul>
             <li nz-menu-item routerLink="/admin/blogs/add-edit">Create Blog</li>
-            <li nz-menu-item routerLink="/admin/blogs">View Blogs</li>
+            <li nz-menu-item routerLink="/admin/blogs">Blog Moderation</li>
+            <li nz-menu-item routerLink="/admin/blogs/moderated">View Blogs</li>
           </ul>
         </li>
         <li nz-submenu nzTitle="Users" nzIcon="user" *ngIf="true">
           <ul>
             <li nz-menu-item routerLink="/admin/users/add-edit">Create User</li>
+            <li nz-menu-item routerLink="/admin/users">User Moderation</li>
             <li nz-menu-item routerLink="/admin/users">View Users</li>
           </ul>
         </li>

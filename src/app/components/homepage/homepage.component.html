@@ -165,23 +165,25 @@
   <h2 class="text-3xl font-bold mb-4">Latest Blog Posts</h2>
 
   <div class="flex items-center mt-8 mb-10 pl-10 justify-between gap-4"> <!-- Adjusted for spacing and alignment -->
-    <div class="relative">
-      <input type="text" placeholder="Search..."
-             class="px-8 py-4 text-lg border border-gray-300 rounded-full focus:outline-none focus:border-blue-500 bg-gray-100 text-gray-700"
-             style="width: 200px;"> <!-- Set width explicitly -->
-      <div class="absolute inset-y-0 left-0 flex items-center pl-3 pointer-events-none">
-        <svg class="h-5 w-5 text-gray-500" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                d="M21 21l-6-6m2-6a8 8 0 11-16 0 8 8 0 0116 0zm-2 0a6 6 0 11-12 0 6 6 0 0112 0zM9 9a2 2 0 114 0 2 2 0 01-4 0z">
-          </path>
-        </svg>
-      </div>
+    <div class="flex gap-2">
+      <nz-input-group nzSearch [nzAddOnAfter]="suffixIconSearchButton">
+        <input type="text" [(ngModel)]="searchValue" nz-input placeholder="Search here"/>
+      </nz-input-group>
+
+      <ng-template #suffixIconSearchButton>
+        <button nz-button nzType="primary" nzSearch class="bg-[#6B6C6E] border-[#6B6C6E]" (click)="search()">
+          <span nz-icon nzType="search"></span>
+        </button>
+      </ng-template> <!-- Set width explicitly -->
+
+      <button nz-button nzBlock class="outline-button" (click)="resetSearch()">
+        Reset Search
+      </button>
     </div>
     <div>
-      <button class="px-8 py-4 text-lg border border-gray-300 text-gray-700 rounded-full focus:outline-none focus:border-blue-500 bg-gray-100 hover:bg-gray-200 transition-colors"
-              style="width: 200px; border-radius: 0;"> <!-- Square filter button with specific width -->
-        Filter
-      </button>
+      <nz-select [(ngModel)]="type" (ngModelChange)="getFiltered()">
+        <nz-option *ngFor="let item of filterOptions" [nzValue]="item.value" [nzLabel]="item.label"></nz-option>
+      </nz-select>
     </div>
   </div>
 
@@ -193,14 +195,15 @@
   <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
     <!-- Row 1 -->
     <!-- Blog Post Card 1 -->
-    <div class="border rounded-lg overflow-hidden shadow-md bg-white" *ngFor="let blog of blogs">
+    <div class="border rounded-lg overflow-hidden shadow-md bg-white" *ngFor="let blog of blogData">
       <!-- Blog Post Image -->
       <img src="assets/images/whats-university-like-accepted-students.jpg" alt="Blog Post Image" class="w-full">
       <!-- Blog Post Content -->
       <div class="p-4">
-        <h3 class="text-xl font-semibold mb-2">Blog Post Title</h3>
-        <p class="text-gray-600">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
-        <a href="#" class="text-blue-500 font-semibold mt-2 hover:underline">Read More</a>
+        <h3 class="text-xl font-semibold mb-2">{{blog.title}}</h3>
+        <p class="text-gray-600" *ngIf="blog.content.length <= 250">{{ blog.content }}</p>
+        <p class="text-gray-600" *ngIf="blog.content.length > 250">{{ blog.content.slice(0, 250) }}...</p>
+        <a class="text-blue-500 font-semibold mt-2 hover:underline" (click)="navToSingle(blog.idblogs)">Read More</a>
       </div>
     </div>
     <!-- Repeat for other blog posts in Row 1 -->
@@ -210,7 +213,7 @@
 
   </div>
   <div class=" mt-8" style="display: flex; justify-content: flex-end">
-    <nz-pagination [nzPageIndex]="1" [nzTotal]="50" ></nz-pagination>
+    <nz-pagination [nzPageIndex]="pageSize.pageIndex" [nzPageSize]="pageSize.pageSize" [nzTotal]="pageSize.length" ></nz-pagination>
   </div>
 </section>
 

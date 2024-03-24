@@ -1,15 +1,18 @@
 import {Component, OnInit} from '@angular/core';
 import {BlogService} from "../../../core/services/blog.service";
 import {ActivatedRoute, Router} from "@angular/router";
-import {DatePipe} from "@angular/common";
+import {CommonModule, DatePipe} from "@angular/common";
 import {NzButtonComponent} from "ng-zorro-antd/button";
+import {NzIconDirective} from "ng-zorro-antd/icon";
 
 @Component({
   selector: 'app-view-single-blog',
   standalone: true,
   imports: [
     DatePipe,
-    NzButtonComponent
+    NzButtonComponent,
+    CommonModule,
+    NzIconDirective
   ],
   templateUrl: './view-single-blog.component.html',
   styleUrl: './view-single-blog.component.css'
@@ -18,6 +21,7 @@ export class ViewSingleBlogComponent implements OnInit{
 
   blogId:any;
   blogData:any;
+  parameter: any;
 
   constructor(private blogService: BlogService,
               private router: Router,
@@ -26,7 +30,9 @@ export class ViewSingleBlogComponent implements OnInit{
   ngOnInit(): void {
 
     this.blogId = this.route.snapshot.paramMap.get('id');
-
+    this.route.params.subscribe((params) => {
+      this.parameter = params['moderated'];
+      console.log(this.parameter)
       this.blogService.getBlogById(this.blogId).subscribe(
         (res: any) => {
           console.log(res)
@@ -36,6 +42,7 @@ export class ViewSingleBlogComponent implements OnInit{
           console.log(e)
         },
       );
+    })
 
   }
 

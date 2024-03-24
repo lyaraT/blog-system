@@ -1,8 +1,11 @@
 
 <div class="bg-white text-black shadow-sm">
   <!-- Adjusted Blog Post Heading with increased top and bottom margin -->
-  <div class="container mx-auto py-16 px-4 text-center"> <!-- Increased py value for more vertical padding around the container -->
-    <h1 class="text-7xl font-bold my-6 text-black">{{blogData.title}}</h1> <!-- Reduced my value for less margin top and bottom -->
+  <div class="container mx-auto py-16 px-4 text-center">
+    <div class="flex gap1 container mx-auto py-16 px-4 text-center">
+      <span nz-icon nzType="left-circle" nzTheme="outline"></span><!-- Increased py value for more vertical padding around the container -->
+    <h1 class="text-7xl font-bold my-6 text-black">{{blogData.title}}</h1>
+  </div><!-- Reduced my value for less margin top and bottom -->
     <h3 class="text-3xl font-semibold mb-6 text-blue-900">"{{blogData.subTopic}}"</h3> <!-- Reduced mb value for less margin bottom -->
   </div>
 
@@ -28,7 +31,7 @@
     </p>
   </div>
 
-  <div class="flex container mx-auto max-w-4xl py-12 px-4 text-center text-black justify-center gap-4">
+  <div *ngIf="parameter !== 'mod'" class="flex container mx-auto max-w-4xl py-12 px-4 text-center text-black justify-center gap-4">
     <button nz-button class="primary" (click)="accept()">Accept</button>
     <button nz-button class="primary" (click)="reject()">Reject</button>
   </div>

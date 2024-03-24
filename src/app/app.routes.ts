@@ -12,6 +12,8 @@ import {ViewSingleComponent} from "./components/contactUs/view-single/view-singl
 import {AdminLayoutComponent} from "./layouts/admin-layout/admin-layout.component";
 import {ForgotPasswordComponent} from "./components/auth/forgot-password/forgot-password.component";
 import {RegistrationComponent} from "./components/auth/registration/registration.component";
+import {ModeratedBlogsComponent} from "./components/blogs/moderated-blogs/moderated-blogs.component";
+import {SingleBlogComponent} from "./components/single-blog/single-blog.component";
 
 export const routes: Routes = [
   {
@@ -22,6 +24,10 @@ export const routes: Routes = [
   {
     path:'homepage',
     component: HomepageComponent
+  },
+  {
+    path:'single-blog/:id',
+    component: SingleBlogComponent
   },
   {
     path: 'auth',
@@ -75,6 +81,10 @@ export const routes: Routes = [
       {
         path: 'blogs/add-edit',
         component: AddEditBlogComponent
+      },
+      {
+        path: 'blogs/moderated',
+        component: ModeratedBlogsComponent
       },
       {
         path: 'blogs/:id',
