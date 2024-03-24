@@ -6,6 +6,7 @@ import {NzMessageService} from "ng-zorro-antd/message";
 import {FileService} from "../../../core/services/file.service";
 import {FormBuilder, FormGroup, ReactiveFormsModule, Validators} from "@angular/forms";
 import {BlogService} from "../../../core/services/blog.service";
+import {AuthService} from "../../../core/services/auth.service";
 
 @Component({
   selector: 'app-add-edit-blog',
@@ -24,7 +25,8 @@ export class AddEditBlogComponent implements OnInit {
   blogForm!: FormGroup;
 
   constructor(private msg: NzMessageService, private filesService: FileService
-    , private formBuilder: FormBuilder, private blogService: BlogService) {
+    , private formBuilder: FormBuilder, private blogService: BlogService,
+              private authService : AuthService) {
   }
 
   ngOnInit(): void {
@@ -47,6 +49,11 @@ export class AddEditBlogComponent implements OnInit {
 
 
   submit(): void {
+    const user = this.authService.getLoggedInUser();
+
+    if (user.role === 'Admin'){
+      this.blogForm.get('status')?.patchValue(true);
+    }
     this.blogService.createBlog(this.blogForm.getRawValue()).subscribe(()=>{
       this.msg.create('success','Blog Created - Sent for Admin Moderation');
       this.blogForm.reset()
