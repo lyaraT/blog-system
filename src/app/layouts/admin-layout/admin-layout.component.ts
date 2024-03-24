@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import {Component, OnInit} from '@angular/core';
 import {
   NzContentComponent,
   NzFooterComponent,
@@ -11,6 +11,8 @@ import {NzIconDirective} from "ng-zorro-antd/icon";
 import {NzMenuDirective, NzMenuItemComponent, NzSubMenuComponent} from "ng-zorro-antd/menu";
 import {RouterLink, RouterOutlet} from "@angular/router";
 import {CommonModule} from "@angular/common";
+import {AuthService} from "../../core/services/auth.service";
+import {NzButtonComponent} from "ng-zorro-antd/button";
 
 @Component({
   selector: 'app-admin-layout',
@@ -29,13 +31,28 @@ import {CommonModule} from "@angular/common";
     NzSiderComponent,
     RouterOutlet,
     CommonModule,
-    RouterLink
+    RouterLink,
+    NzButtonComponent
   ],
   templateUrl: './admin-layout.component.html',
   styleUrl: './admin-layout.component.css'
 })
-export class AdminLayoutComponent {
+export class AdminLayoutComponent implements OnInit {
 
   isCollapsed = false;
 
+  user: any
+
+  constructor(private authService: AuthService) {
+  }
+
+  ngOnInit(): void {
+    this.user = this.authService.getLoggedInUser()
+    console.log(this.user.role)
+  }
+
+
+  logout(): void{
+    this.authService.logout();
+  };
 }

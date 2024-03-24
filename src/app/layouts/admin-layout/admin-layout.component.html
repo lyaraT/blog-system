@@ -8,23 +8,27 @@
         <li nz-submenu nzTitle="Blogs" nzIcon="team">
           <ul>
             <li nz-menu-item routerLink="/admin/blogs/add-edit">Create Blog</li>
-            <li nz-menu-item routerLink="/admin/blogs">Blog Moderation</li>
+            <li nz-menu-item routerLink="/admin/blogs" *ngIf="user.role === 'Admin'">Blog Moderation</li>
             <li nz-menu-item routerLink="/admin/blogs/moderated">View Blogs</li>
           </ul>
         </li>
-        <li nz-submenu nzTitle="Users" nzIcon="user" *ngIf="true">
+        <li nz-submenu nzTitle="Users" nzIcon="user" *ngIf="user.role === 'Admin'">
           <ul>
             <li nz-menu-item routerLink="/admin/users/add-edit">Create User</li>
-            <li nz-menu-item routerLink="/admin/users">User Moderation</li>
+            <li nz-menu-item routerLink="/admin/users/moderate">User Moderation</li>
             <li nz-menu-item routerLink="/admin/users">View Users</li>
           </ul>
         </li>
-        <li nz-submenu nzTitle="Contact Us" nzIcon="team">
+        <li nz-submenu nzTitle="Contact Us" nzIcon="team" *ngIf="user.role === 'Admin'">
           <ul>
             <li nz-menu-item routerLink="/admin/contact-us">Responses</li>
           </ul>
         </li>
       </ul>
+      <div class="w-full mt-10 flex justify-center">
+        <button nz-button class="primary" (click)="logout()">Logout</button>
+      </div>
+
     </nz-sider>
     <nz-layout>
       <nz-header>
@@ -45,5 +49,6 @@
         </div>
       </nz-content>
     </nz-layout>
+
   </nz-layout>
 </div>

@@ -14,6 +14,7 @@ import {ForgotPasswordComponent} from "./components/auth/forgot-password/forgot-
 import {RegistrationComponent} from "./components/auth/registration/registration.component";
 import {ModeratedBlogsComponent} from "./components/blogs/moderated-blogs/moderated-blogs.component";
 import {SingleBlogComponent} from "./components/single-blog/single-blog.component";
+import {AuthGuard} from "./core/gaurds/auth.gaurd";
 
 export const routes: Routes = [
   {
@@ -52,10 +53,11 @@ export const routes: Routes = [
   },
   {
     path: 'admin',
+    canActivate: [AuthGuard],
     component: AdminLayoutComponent,
     children: [
       {
-        path: 'users',
+        path: 'users/moderate',
         component: ViewUsersComponent
       },
       {
@@ -67,7 +69,7 @@ export const routes: Routes = [
         component: AddEditUserComponent
       },
       {
-        path: 'users/:id',
+        path: 'users',
         component: ViewSingleUserComponent
       },
       {

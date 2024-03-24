@@ -9,6 +9,7 @@ import { FormsModule } from '@angular/forms';
 import { provideAnimationsAsync } from '@angular/platform-browser/animations/async';
 import { provideHttpClient } from '@angular/common/http';
 import {NgxUiLoaderConfig, NgxUiLoaderModule, PB_DIRECTION, POSITION, SPINNER} from "ngx-ui-loader";
+import {AuthGuard} from "./core/gaurds/auth.gaurd";
 
 registerLocaleData(en);
 
@@ -23,5 +24,5 @@ const ngxUiLoaderConfig: NgxUiLoaderConfig = {
 };
 
 export const appConfig: ApplicationConfig = {
-  providers: [provideRouter(routes), provideNzI18n(en_US), importProvidersFrom(FormsModule), provideAnimationsAsync(), provideHttpClient(),NgxUiLoaderModule.forRoot(ngxUiLoaderConfig).ngModule]
+  providers: [provideRouter(routes), provideNzI18n(en_US), importProvidersFrom(FormsModule), provideAnimationsAsync(), provideHttpClient(),NgxUiLoaderModule.forRoot(ngxUiLoaderConfig).ngModule,AuthGuard,]
 };

@@ -12,6 +12,7 @@ import {ActivatedRoute, Router} from "@angular/router";
         NgIf,
         NzButtonComponent
     ],
+  providers:[DatePipe],
   templateUrl: './single-blog.component.html',
   styleUrl: './single-blog.component.css'
 })

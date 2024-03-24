@@ -3,7 +3,7 @@ import { Injectable } from '@angular/core';
 import { SETTINGS } from '../constants/common.settings';
 import {NgxUiLoaderService} from "ngx-ui-loader";
 import {NzMessageService} from "ng-zorro-antd/message";
-import {BehaviorSubject} from "rxjs";
+import {BehaviorSubject, Observable} from "rxjs";
 
 @Injectable({
   providedIn: 'root'
@@ -35,5 +35,13 @@ export class UserService {
         },
       });
     });
+  }
+
+  getUsersPaged(payload: any): Observable<any> {
+    return this.http.post(`${SETTINGS.BASE_API}/user/paged`, payload);
+  }
+
+  updateUsers(payload: any): Observable<any> {
+    return this.http.post(`${SETTINGS.BASE_API}/user/update`, payload);
   }
 }

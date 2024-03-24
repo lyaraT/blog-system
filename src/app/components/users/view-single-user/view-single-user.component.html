@@ -1,1 +1,120 @@
-<p>view-single-user works!</p>
+
+<h1 class="mb-5">View Users</h1>
+<div class="flex flex-col-reverse sm:flex-row gap-2 mb-8">
+
+  <div class="flex-grow mb-2">
+    <div>
+      <nz-collapse>
+        <nz-collapse-panel [nzHeader]="'Advanced Search'">
+          <div class="flex flex-col sm:flex-row sm:justify-between sm:items-start gap-4">
+            <div class="flex flex-col xl:flex-row md:items-start gap-2 xl:gap-0">
+              <nz-input-group nzSearch [nzAddOnAfter]="suffixIconSearchButton">
+                <input type="text" [(ngModel)]="searchValue" nz-input placeholder="Search here"/>
+              </nz-input-group>
+
+              <ng-template #suffixIconSearchButton>
+                <button nz-button nzType="primary" nzSearch class="bg-[#6B6C6E] border-[#6B6C6E]" (click)="search()">
+                  <span nz-icon nzType="search"></span>
+                </button>
+              </ng-template>
+              <nz-divider class="hidden lg:block" [nzType]="'vertical'"></nz-divider>
+            </div>
+
+            <div>
+              <button nz-button nzBlock class="outline-button" (click)="resetSearch()">
+                Reset All
+              </button>
+            </div>
+
+          </div>
+        </nz-collapse-panel>
+      </nz-collapse>
+
+    </div>
+  </div>
+</div>
+
+
+<div class="table-card">
+  <div class="table-obj">
+    <nz-table
+
+      #basicTable [nzData]="userData" [nzShowSizeChanger]="pageSize.length > 5"
+      [nzPageSizeOptions]="pageSize.pageSizeOptions" [nzPageSize]="pageSize.pageSize"
+      [nzPageIndex]="pageSize.pageIndex" [nzFrontPagination]="false" [nzTotal]="pageSize.length"
+      (nzQueryParams)="onTableParamsChange($event)" [nzScroll]="{ x: 'auto' }" nzTableLayout="fixed"
+      nzOuterBordered
+    >
+      <thead>
+      <tr>
+        <th style="white-space: nowrap;">Id</th>
+        <th style="white-space: nowrap;">Full Name</th>
+        <th style="white-space: nowrap;">Email</th>
+        <th style="white-space: nowrap;">Role</th>
+        <th style="white-space: nowrap;">Dob</th>
+        <th style="white-space: nowrap;">Nic</th>
+        <th style="white-space: nowrap;">mobileNo</th>
+        <th style="white-space: nowrap;">createdAt</th>
+        <th
+          style="white-space: nowrap;">Actions
+        </th>
+      </tr>
+      </thead>
+      <tbody>
+
+      <!--        Initial Inventory entry-->
+      <tr *ngFor="let data of basicTable.data;  let i = index" class="align-baseline">
+
+        <td style="white-space: nowrap;">{{ data.iduser }}</td>
+        <td style="white-space: nowrap;">{{ data.fullname }}</td>
+        <td style="white-space: nowrap;">{{ data.email }}</td>
+        <td style="white-space: nowrap;">{{ data.role }}</td>
+        <td style="white-space: nowrap;">{{ data.dob  | date:'yyyy-MM-dd'}}</td>
+        <td style="white-space: nowrap;">{{ data.nic }}</td>
+        <td style="white-space: nowrap;">{{ data.mobileNo }}</td>
+        <td style="white-space: nowrap;">{{ data.createdAt | date:'yyyy-MM-dd' }}</td>
+        <td>
+          <button
+            class="outline-button more-dropdown ml-2.5"
+            nz-button
+            nz-dropdown
+            [nzDropdownMenu]="menu"
+            nzPlacement="bottomCenter"
+          >
+            <span nz-icon nzType="more" nzTheme="outline"></span>
+          </button>
+          <nz-dropdown-menu #menu="nzDropdownMenu">
+            <ul nz-menu>
+              <a nz-popconfirm
+                 nzPopconfirmTitle="Are you sure you want to APPROVE this blog?"
+                 nzPopconfirmPlacement="bottom"
+                 (nzOnConfirm)="accept(data)"
+                 (nzOnCancel)="cancel()">
+                <li nz-menu-item style="background-color: green; font-weight: bold">
+                  Approve
+                </li>
+              </a>
+              <a nz-popconfirm
+                 nzPopconfirmTitle="Are you sure you want to REJECT this blog?"
+                 nzPopconfirmPlacement="bottom"
+                 (nzOnConfirm)="reject(data)"
+                 (nzOnCancel)="cancel()"
+              >
+                <li nz-menu-item style="background-color: red; font-weight: bold">Reject
+                </li>
+              </a>
+            </ul>
+          </nz-dropdown-menu>
+        </td>
+      </tr>
+
+
+      </tbody>
+    </nz-table>
+    <div class="mt-5" *ngIf="userData.length < 1" style="display: flex; justify-content: center; align-items: center;">
+      <h4>No Data</h4>
+    </div>
+  </div>
+
+</div>
+

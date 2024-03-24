@@ -1,1 +1,89 @@
-<p>add-edit-user works!</p>
+<div class="w-full main-content  p-8 flex justify-center items-center">
+  <nz-card
+    [nzCover]="coverTemplate" style="background: white">
+    <div class="form-content">
+      <div class="mb-7">
+        <h3 class="form-text">User</h3>
+        <p class="font-normal form-text">Register to be a blogger!</p>
+      </div>
+      <div>
+        <form [formGroup]="userForm">
+
+          <nz-form-item>
+            <nz-form-label [nzSpan]="7" nzRequired>Full name</nz-form-label>
+            <nz-form-control [nzSpan]="12">
+              <input nz-input formControlName="fullname" placeholder="Full Name" />
+            </nz-form-control>
+          </nz-form-item>
+
+          <nz-form-item>
+            <nz-form-label [nzSpan]="7" nzRequired>E-mail</nz-form-label>
+            <nz-form-control [nzSpan]="12">
+              <input nz-input placeholder="Email" formControlName="email" type="email" />
+            </nz-form-control>
+          </nz-form-item>
+
+          <nz-form-item>
+            <nz-form-label [nzSpan]="7" nzRequired>Phone number</nz-form-label>
+            <nz-form-control [nzSpan]="12">
+              <input nz-input placeholder="Phone Number" formControlName="mobileNo" />
+            </nz-form-control>
+          </nz-form-item>
+          <nz-form-item>
+            <nz-form-label [nzSpan]="7" nzRequired>Date of Birth</nz-form-label>
+            <nz-form-control [nzSpan]="12">
+              <nz-date-picker nzPlaceHolder="Select Date" formControlName="dob"> </nz-date-picker>
+            </nz-form-control>
+          </nz-form-item>
+
+          <nz-form-item>
+            <nz-form-label [nzSpan]="7" nzRequired>Role</nz-form-label>
+            <nz-form-control [nzSpan]="12">
+              <nz-select nzPlaceHolder="Select Role" formControlName="role">
+                <nz-option nzLabel="Admin" nzValue="Admin"></nz-option>
+                <nz-option nzLabel="Club patron" nzValue="Club patron"></nz-option>
+                <nz-option nzLabel="Student Support Service" nzValue="Student Support Service"></nz-option>
+                <nz-option nzLabel="Faculty members" nzValue="Faculty members"></nz-option>
+                <nz-option nzLabel="Industrial license" nzValue="Industrial license"></nz-option>
+                <nz-option nzLabel="Alumni" nzValue="Alumni"></nz-option>
+              </nz-select>
+            </nz-form-control>
+          </nz-form-item>
+
+          <nz-form-item>
+            <nz-form-label [nzSpan]="7" nzRequired>NIC</nz-form-label>
+            <nz-form-control [nzSpan]="12">
+              <input nz-input placeholder="NIC" formControlName="nic"/>
+            </nz-form-control>
+          </nz-form-item>
+          <nz-form-item>
+            <nz-form-control [nzOffset]="7" [nzSpan]="12">
+              <button nz-button nzType="primary" [disabled]="userForm.invalid" (click)="onSubmit()">Submit</button>
+            </nz-form-control>
+          </nz-form-item>
+        </form>
+      </div>
+    </div>
+  </nz-card>
+
+  <div class="footer-info">
+    <p class="font-normal text-xs">
+      <span class="font-semibold">Apiit</span>  2024 All Rights Reserved
+    </p>
+  </div>
+
+</div>
+
+<ng-template #coverTemplate>
+  <div class="flex card-banner">
+    <div>
+      <img src="assets/images/Logo1.jpg" style="width: 100px;height: 100px" class="card-banner-img" alt="logo" >
+    </div>
+    <div class="banner-text">
+      <p class="font-semibold banner-content-title text-xl" style="color: white; margin-bottom: 5px">APIIT BLOG SYSTEM</p>
+      <p class="font-normal banner-content text-xs" style="color: white">INSPIRE LOVE FOR LEARNING</p>
+    </div>
+  </div>
+</ng-template>
+
+
