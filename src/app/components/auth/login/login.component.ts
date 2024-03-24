@@ -68,7 +68,7 @@ export class LoginComponent implements OnInit {
   }
 
   navigateToAdminSection(): void {
-    this.router.navigate(['/admin/blogs']);
+    this.router.navigate(['/admin/blogs/add-edit']);
   }
   navToRegistration(): void {
     this.router.navigate(['/auth/registration']);
