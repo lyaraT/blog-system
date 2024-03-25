@@ -7,8 +7,6 @@
     <nav>
       <ul class="flex space-x-4 text-white text-2xl"> <!-- Changed text-xl to text-2xl for even bigger font size -->
         <li><a href="#" class="hover:underline">Home</a></li>
-        <li><a href="#" class="hover:underline">Business & IT</a></li>
-        <li><a href="#" class="hover:underline">Law</a></li>
         <li><a href="#" class="hover:underline">Contact Us</a></li>
         <li><a (click)="navigateToLogin()" class="hover:underline" >Login</a></li>
 
@@ -166,25 +164,31 @@
 
   <div class="flex items-center mt-8 mb-10 pl-10 justify-between gap-4"> <!-- Adjusted for spacing and alignment -->
     <div class="flex gap-2">
-      <nz-input-group nzSearch [nzAddOnAfter]="suffixIconSearchButton">
-        <input type="text" [(ngModel)]="searchValue" nz-input placeholder="Search here"/>
+      <nz-input-group nzSearch [nzAddOnAfter]="suffixIconSearchButton" class="rounded-md border border-gray-300 overflow-hidden">
+        <input type="text" [(ngModel)]="searchValue" nz-input placeholder="Search here" class="py-2 px-3 w-full focus:outline-none bg-transparent"/>
       </nz-input-group>
+
 
       <ng-template #suffixIconSearchButton>
         <button nz-button nzType="primary" nzSearch class="bg-[#6B6C6E] border-[#6B6C6E]" (click)="search()">
           <span nz-icon nzType="search"></span>
         </button>
       </ng-template> <!-- Set width explicitly -->
-
-      <button nz-button nzBlock class="outline-button" (click)="resetSearch()">
-        Reset Search
+      <button nz-button nzBlock class="bg-gray-200 text-gray-700 hover:bg-gray-300 px-3 py-3 rounded-md shadow-md transition duration-300 ease-in-out transform hover:scale-105" style="width: auto;" (click)="resetSearch()">
+        Clear
       </button>
+
+
+
+
     </div>
-    <div>
-      <nz-select [(ngModel)]="type" (ngModelChange)="getFiltered()">
+    <div class="relative">
+      <nz-select [(ngModel)]="type" (ngModelChange)="getFiltered()" class="w-full max-w-xs rounded">
         <nz-option *ngFor="let item of filterOptions" [nzValue]="item.value" [nzLabel]="item.label"></nz-option>
       </nz-select>
     </div>
+
+
   </div>
 
 
