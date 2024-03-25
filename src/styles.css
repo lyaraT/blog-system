@@ -1,9 +1,17 @@
+@import url('https://fonts.googleapis.com/css2?family=Ibarra+Real+Nova:ital,wght@0,400..700;1,400..700&display=swap');
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
 
+/* Font */
+:root {
+  --font-primary: 'Ibarra Real Nova', sans-serif; /* Use the font family name you imported */
+}
+
 body {
   background-color: #f0f2f5;
+  font-size: 14px;
+  font-family: var(--font-primary);
 }
 
 .trigger:hover {
@@ -67,9 +75,6 @@ h1 {
   font-size: 2.266rem !important;
 }
 
-h2 {
-  font-size: 1.602rem !important;
-}
 
 h3 {
   font-size: 1.424rem !important;

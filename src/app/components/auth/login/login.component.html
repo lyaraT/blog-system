@@ -2,12 +2,12 @@
 
   <div class="min-h-screen h-screen flex">
     <div class="w-1/2 relative hidden md:block">
-      <img src="assets/images/mainhomepage.jpg" class="w-full h-full object-cover"/>
+      <img src="assets/images/mainhomepage.jpg" class="w-full h-full "/>
       <div class=" hidden md:block absolute top-0 left-0 w-full h-full bg-black opacity-50"></div>
     </div>
 
 
-    <div class="w-full main-content md:w-1/2 p-8 flex justify-center items-center">
+    <div class="w-full main-content md:w-1/2 p-8 flex justify-center items-center h-full"> <!-- Adjusted height -->
       <nz-card
         [nzCover]="coverTemplate" style="background: white">
         <div class="form-content">
@@ -52,7 +52,10 @@
                 Login
               </button>
             </form>
-            <p class="mt-5">Want to become a blogger ? <a style="cursor: pointer; color: blue" (click)="navToRegistration()"> Register</a></p>
+            <p class="mt-5 text-2xl font-semibold text-gray-800">
+              Want to become a blogger?
+              <a class="cursor-pointer text-blue-500 hover:underline" (click)="navToRegistration()">Register</a>
+            </p>
           </div>
 
         </div>
@@ -64,6 +67,7 @@
           <span class="font-semibold">Apiit</span>  2024 All Rights Reserved
         </p>
       </div>
+
 
     </div>
 
