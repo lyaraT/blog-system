@@ -83,7 +83,7 @@
           </button>
           <nz-dropdown-menu #menu="nzDropdownMenu">
             <ul nz-menu>
-              <a nz-popconfirm
+              <a nz-popconfirm *ngIf="user.role === 'Admin'"
                  nzPopconfirmTitle="Are you sure you want to Delete this blog?"
                  nzPopconfirmPlacement="bottom"
                  (nzOnConfirm)="delete(data)"

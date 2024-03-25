@@ -13,6 +13,7 @@ import {NzIconDirective} from "ng-zorro-antd/icon";
 import {NzInputDirective, NzInputGroupComponent} from "ng-zorro-antd/input";
 import {NzMenuDirective, NzMenuItemComponent} from "ng-zorro-antd/menu";
 import {NzPopconfirmDirective} from "ng-zorro-antd/popconfirm";
+import {AuthService} from "../../../core/services/auth.service";
 
 @Component({
   selector: 'app-moderated-blogs',
@@ -45,12 +46,14 @@ export class ModeratedBlogsComponent implements OnInit {
   blogData: any[] = [];
   searchValue: any;
   status: any;
+  user:any;
 
-
-  constructor(private blogService: BlogService, private router: Router) {
+  constructor(private blogService: BlogService, private router: Router,private authService: AuthService) {
   }
 
   ngOnInit(): void {
+    this.user = this.authService.getLoggedInUser()
+    console.log(this.user.role)
     this.getPagedBlogs();
 
   }

@@ -62,7 +62,7 @@ export class RegistrationComponent implements OnInit {
       // password: [null, Validators.compose([Validators.required])],
       nic: [null, Validators.compose([Validators.required])],
       dob: [null, Validators.compose([Validators.required])],
-      mobileNo: [null, Validators.compose([Validators.required])],
+      mobileNo: [null, Validators.compose([Validators.required, Validators.minLength(10), Validators.maxLength(10)])], // Mobile number must be exactly 10 digits
       isActive: [true,],
       isAuthenticated: [false,],
     });
