@@ -73,4 +73,8 @@ export class LoginComponent implements OnInit {
   navToRegistration(): void {
     this.router.navigate(['/auth/registration']);
   }
+
+  navToHomepage(): void {
+    this.router.navigate(['/homepage']);
+  }
 }

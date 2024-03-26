@@ -86,21 +86,21 @@
           <nz-dropdown-menu #menu="nzDropdownMenu">
             <ul nz-menu>
               <a nz-popconfirm
-                 nzPopconfirmTitle="Are you sure you want to APPROVE this User?"
+                 nzPopconfirmTitle="Are you sure you want to Resend User Credentials?"
                  nzPopconfirmPlacement="bottom"
                  (nzOnConfirm)="accept(data)"
                  (nzOnCancel)="cancel()">
-                <li nz-menu-item style="background-color: green; font-weight: bold">
-                  Approve
+                <li nz-menu-item style="font-weight: bold">
+                  Send Credentials
                 </li>
               </a>
               <a nz-popconfirm
-                 nzPopconfirmTitle="Are you sure you want to REJECT this User?"
+                 nzPopconfirmTitle="Are you sure you want to Delete User?"
                  nzPopconfirmPlacement="bottom"
                  (nzOnConfirm)="reject(data)"
                  (nzOnCancel)="cancel()"
               >
-                <li nz-menu-item style="background-color: red; font-weight: bold">Reject
+                <li nz-menu-item style="font-weight: bold">Reject
                 </li>
               </a>
             </ul>

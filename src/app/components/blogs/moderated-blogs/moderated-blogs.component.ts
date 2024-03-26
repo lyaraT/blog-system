@@ -110,4 +110,8 @@ export class ModeratedBlogsComponent implements OnInit {
 
   }
 
+  sendCredentials(): void {
+    this.user
+  }
+
 }

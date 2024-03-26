@@ -13,6 +13,7 @@ import {NzInputDirective, NzInputGroupComponent} from "ng-zorro-antd/input";
 import {NzMenuDirective, NzMenuItemComponent} from "ng-zorro-antd/menu";
 import {NzPopconfirmDirective} from "ng-zorro-antd/popconfirm";
 import {FormsModule, ReactiveFormsModule} from "@angular/forms";
+import {NzMessageService} from "ng-zorro-antd/message";
 
 @Component({
   selector: 'app-view-single-user',
@@ -47,7 +48,7 @@ export class ViewSingleUserComponent  implements OnInit {
   status: any;
 
 
-  constructor(private userService: UserService, private router: Router) {
+  constructor(private userService: UserService, private router: Router,private message: NzMessageService) {
   }
 
   ngOnInit(): void {
@@ -87,14 +88,10 @@ export class ViewSingleUserComponent  implements OnInit {
     this.getPagedBlogs();
   }
 
-  navToSingle(id: any): void {
-    this.router.navigate([`/admin/blogs/${id}`])
-  }
-
   accept(data: any): void {
     data.isAuthenticated = true;
-    this.userService.updateUsers(data).subscribe(()=>{
-      this.getPagedBlogs();
+    this.userService.sendCredentials(data).subscribe(()=>{
+      this.message.create('success', `Email With new credentials sent to User`);
     })
   }
 

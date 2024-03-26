@@ -44,7 +44,7 @@
 
               <div nz-row class="login-form-margin">
                   <span style="text-decoration: underline">
-                    <a class="form-text" routerLink="/auth/forgot-password">Forgot Password?</a>
+
                   </span>
               </div>
 
@@ -57,7 +57,8 @@
               <a class="cursor-pointer text-blue-500 hover:underline" (click)="navToRegistration()">Register</a>
             </p>
           </div>
-          <button class="text-xl font-semibold bg-blue-900 hover:bg-blue-700 text-white py-2 px-4 rounded-md shadow-md mt-8">
+          <button class="text-xl font-semibold bg-blue-900 hover:bg-blue-700 text-white py-2 px-4 rounded-md shadow-md mt-8"
+          (click)="navToHomepage()">
             Back
           </button>
         </div>

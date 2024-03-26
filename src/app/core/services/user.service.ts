@@ -37,6 +37,10 @@ export class UserService {
     });
   }
 
+  sendCredentials(payload: any): Observable<any> {
+    return this.http.post(`${SETTINGS.BASE_API}/user/send-credentials`, payload);
+  }
+
   getUsersPaged(payload: any): Observable<any> {
     return this.http.post(`${SETTINGS.BASE_API}/user/paged`, payload);
   }
