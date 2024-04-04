@@ -7,6 +7,7 @@ import {FileService} from "../../../core/services/file.service";
 import {FormBuilder, FormGroup, ReactiveFormsModule, Validators} from "@angular/forms";
 import {BlogService} from "../../../core/services/blog.service";
 import {AuthService} from "../../../core/services/auth.service";
+import {Subscription} from "rxjs";
 
 @Component({
   selector: 'app-add-edit-blog',
@@ -28,6 +29,8 @@ export class AddEditBlogComponent implements OnInit {
     , private formBuilder: FormBuilder, private blogService: BlogService,
               private authService : AuthService) {
   }
+
+  uploadedImageUrl: string | null = null;
 
   ngOnInit(): void {
     this.initBlogForm();
@@ -62,18 +65,23 @@ export class AddEditBlogComponent implements OnInit {
     });
   }
 
-  upload = (item: NzUploadXHRArgs) =>
-    this.filesService
-      .postFile(item.file, "FILE")
-      .subscribe((res: any) => {
-        // this.message.create('success', `Attachment has been uploaded!`);
-        const data = res as any;
-        console.log(data);
-        if (data) {
-          this.file.push({name: item.file.name, url: data.url});
+  private push: any;
+  upload = (item: NzUploadXHRArgs): (item: NzUploadXHRArgs) => void => {
+    return (item: NzUploadXHRArgs): void => {
+      this.filesService.postFile(item.file, "FILE").subscribe(
+        (res: any) => {
+          const data = res;
+          console.log(data);
+          if (data.imageUrl) {
+            this.uploadedImageUrl = data.imageUrl; // Update the URL
+          }
+        },
+        (error: any) => {
+          console.error('Error uploading file:', error);
         }
-      });
-
+      );
+    };
+  };
 
 
 }
