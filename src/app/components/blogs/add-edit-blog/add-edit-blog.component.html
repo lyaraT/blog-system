@@ -29,14 +29,14 @@
       <label for="faculty" class="text-gray-700 text-xl font-bold mb-2">Faculty</label>
       <select id="faculty" name="faculty" formControlName="type"
               class="w-full px-4 py-4 border border-gray-300 rounded-md focus:outline-none focus:border-blue-400 placeholder-gray-500 text-lg">
-        <option value="business-it">Business & IT Faculty</option>
-        <option value="law">Law Faculty</option>
+        <option value="BUSINESS ">Business Faculty</option>
+        <option value="IT ">IT Faculty</option>
+        <option value="LAW ">Law Faculty</option>
       </select>
     </div>
     <div class="mb-4 flex flex-col">
       <label for="faculty" class="text-gray-700 text-xl font-bold mb-2">Image</label>
       <nz-upload
-        [nzCustomRequest]="upload"
       >
         <button nz-button>
           <span nz-icon nzType="upload"></span>

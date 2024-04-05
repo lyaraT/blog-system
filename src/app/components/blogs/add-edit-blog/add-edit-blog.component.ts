@@ -65,23 +65,7 @@ export class AddEditBlogComponent implements OnInit {
     });
   }
 
-  private push: any;
-  upload = (item: NzUploadXHRArgs): (item: NzUploadXHRArgs) => void => {
-    return (item: NzUploadXHRArgs): void => {
-      this.filesService.postFile(item.file, "FILE").subscribe(
-        (res: any) => {
-          const data = res;
-          console.log(data);
-          if (data.imageUrl) {
-            this.uploadedImageUrl = data.imageUrl; // Update the URL
-          }
-        },
-        (error: any) => {
-          console.error('Error uploading file:', error);
-        }
-      );
-    };
-  };
+
 
 
 }

@@ -32,8 +32,9 @@ export class HomepageComponent implements OnInit {
 
   filterOptions = [
     {label:'All Blogs',value:null},
-    {label:'business-it',value:'business-it'},
-    {label:'Law Faculty',value:'law'}
+    {label:'Business Faculty',value:'BUSINESS '},
+    {label:'It Faculty',value:'IT '},
+    {label:'Law Faculty',value:'LAW '}
     ]
 
   constructor(private blogService: BlogService, private router: Router) {
