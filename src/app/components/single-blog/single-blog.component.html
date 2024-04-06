@@ -68,10 +68,12 @@
     </p>
 
     <!-- Download button -->
-    <button nz-button class="primary" (click)="downloadBlogPost()">Download Blog Post</button>
+    <button nz-button class="primary" (click)="downloadBlogPost()">Download (.txt file)</button>
 
   </div>
-<!--download-->
+<!--download pdf-->
+  <button nz-button class="primary" (click)="generatePDF()">Download PDF</button>
+
 
   <div class="flex container mx-auto max-w-4xl py-12 px-4 text-center text-black justify-center gap-4">
     <button nz-button class="primary" (click)="navigateToView()">Back</button>
