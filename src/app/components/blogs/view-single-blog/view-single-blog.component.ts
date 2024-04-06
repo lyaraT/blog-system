@@ -64,6 +64,7 @@ export class ViewSingleBlogComponent implements OnInit{
     );
   }
 
+
   accept():void {
     this.blogData.status = true;
     this.blogService.updateBlogs(this.blogData).subscribe(()=>{
