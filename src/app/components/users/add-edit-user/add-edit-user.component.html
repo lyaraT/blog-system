@@ -1,85 +1,103 @@
 <div class="w-full main-content  p-8 flex justify-center items-center">
-  <nz-card
-    [nzCover]="coverTemplate" style="background: white">
-
+  <nz-card [nzCover]="coverTemplate" style="background: white">
     <div class="form-content">
-      <div class="mb-7">
-        <h3 class="form-text">User</h3>
-        <p class="font-normal form-text">Register to be a blogger!</p>
+      <div class="mb-7 ml-auto"> <!-- Added ml-auto class to move the content to the right -->
+        <h3 class="form-text text-lg font-semibold">User Registration</h3>
+        <p class="font-normal text-gray-600">Register to be a blogger!</p>
       </div>
+
       <div>
-        <form [formGroup]="userForm">
+        <form [formGroup]="userForm" class="space-y-4">
 
-          <nz-form-item>
-            <nz-form-label [nzSpan]="7" nzRequired>Full name</nz-form-label>
-            <nz-form-control [nzSpan]="12">
-              <input nz-input formControlName="fullname" placeholder="Full Name" />
-            </nz-form-control>
-          </nz-form-item>
+          <div class="flex flex-wrap items-center space-y-4">
+            <div class="w-full md:w-1/2">
+              <nz-form-item>
+                <nz-form-label nzRequired>Full Name</nz-form-label>
+                <nz-form-control>
+                  <input nz-input formControlName="fullname" placeholder="Full Name" class="w-full" />
+                </nz-form-control>
+              </nz-form-item>
+            </div>
 
-          <nz-form-item>
-            <nz-form-label [nzSpan]="7" nzRequired>E-mail</nz-form-label>
-            <nz-form-control [nzSpan]="12">
-              <input nz-input placeholder="Email" formControlName="email" type="email" />
-            </nz-form-control>
-          </nz-form-item>
+            <div class="w-full md:w-1/2">
+              <nz-form-item>
+                <nz-form-label nzRequired>E-mail</nz-form-label>
+                <nz-form-control>
+                  <input nz-input placeholder="Email" formControlName="email" type="email" class="w-full" />
+                </nz-form-control>
+              </nz-form-item>
+            </div>
 
-          <nz-form-item>
-            <nz-form-label [nzSpan]="7" nzRequired>Phone number</nz-form-label>
-            <nz-form-control [nzSpan]="12">
-              <input nz-input placeholder="Phone Number" formControlName="mobileNo" />
-            </nz-form-control>
-          </nz-form-item>
-          <nz-form-item>
-            <nz-form-label [nzSpan]="7" nzRequired>Date of Birth</nz-form-label>
-            <nz-form-control [nzSpan]="12">
-              <nz-date-picker nzPlaceHolder="Select Date" formControlName="dob"> </nz-date-picker>
-            </nz-form-control>
-          </nz-form-item>
+            <div class="w-full md:w-1/2">
+              <nz-form-item>
+                <nz-form-label nzRequired>Phone number</nz-form-label>
+                <nz-form-control>
+                  <input nz-input placeholder="Phone Number" formControlName="mobileNo" class="w-full" />
+                </nz-form-control>
+              </nz-form-item>
+            </div>
 
-          <nz-form-item>
-            <nz-form-label [nzSpan]="7" nzRequired>Role</nz-form-label>
-            <nz-form-control [nzSpan]="12">
-              <nz-select nzPlaceHolder="Select Role" formControlName="role">
-                <nz-option nzLabel="Admin" nzValue="Admin"></nz-option>
-                <nz-option nzLabel="Club patron" nzValue="Club patron"></nz-option>
-                <nz-option nzLabel="Student Support Service" nzValue="Student Support Service"></nz-option>
-                <nz-option nzLabel="Faculty members" nzValue="Faculty members"></nz-option>
-                <nz-option nzLabel="Industrial license" nzValue="Industrial license"></nz-option>
-                <nz-option nzLabel="Alumni" nzValue="Alumni"></nz-option>
-              </nz-select>
-            </nz-form-control>
-          </nz-form-item>
+            <div class="w-full md:w-1/2">
+              <nz-form-item>
+                <nz-form-label nzRequired>Date of Birth</nz-form-label>
+                <nz-form-control>
+                  <nz-date-picker nzPlaceHolder="Select Date" formControlName="dob" class="w-full"></nz-date-picker>
+                </nz-form-control>
+              </nz-form-item>
+            </div>
 
-          <nz-form-item>
-            <nz-form-label [nzSpan]="7" nzRequired>NIC</nz-form-label>
-            <nz-form-control [nzSpan]="12">
-              <input nz-input placeholder="NIC" formControlName="nic"/>
-            </nz-form-control>
-          </nz-form-item>
-          <nz-form-item>
-            <nz-form-control [nzOffset]="7" [nzSpan]="12">
-              <button nz-button nzType="primary" [disabled]="userForm.invalid" (click)="onSubmit()">Submit</button>
-            </nz-form-control>
-          </nz-form-item>
+            <div class="w-full md:w-1/2">
+              <nz-form-item>
+                <nz-form-label nzRequired>Role</nz-form-label>
+                <nz-form-control>
+                  <nz-select nzPlaceHolder="Select Role" formControlName="role" class="w-full">
+                    <nz-option nzLabel="Student" nzValue="Student"></nz-option>
+                    <nz-option nzLabel="Faculty member" nzValue="Faculty members"></nz-option>
+                    <nz-option nzLabel="Club patron" nzValue="Club patron"></nz-option>
+                    <nz-option nzLabel="Student Support Service" nzValue="Student Support Service"></nz-option>
+                    <nz-option nzLabel="Alumni" nzValue="Alumni"></nz-option>
+                  </nz-select>
+                </nz-form-control>
+              </nz-form-item>
+            </div>
+
+            <div class="w-full md:w-1/2">
+              <nz-form-item>
+                <nz-form-label nzRequired>NIC</nz-form-label>
+                <nz-form-control>
+                  <input nz-input placeholder="NIC" formControlName="nic" class="w-full" />
+                </nz-form-control>
+              </nz-form-item>
+            </div>
+          </div>
+
+          <div class="flex justify-end">
+            <nz-form-item>
+              <nz-form-control>
+                <button nz-button nzType="primary" [disabled]="userForm.invalid" (click)="onSubmit()">Submit</button>
+              </nz-form-control>
+            </nz-form-item>
+          </div>
+
         </form>
+        <div class="footer-info mt-4">
+          <p class="font-normal text-xs text-gray-500">
+            <span class="font-semibold">Apiit</span> 2024 All Rights Reserved
+          </p>
+        </div>
       </div>
     </div>
   </nz-card>
 
-  <div class="footer-info">
-    <p class="font-normal text-xs">
-      <span class="font-semibold">Apiit</span>  2024 All Rights Reserved
-    </p>
-  </div>
 
 </div>
 
 <ng-template #coverTemplate>
   <div class="flex card-banner">
-    <div>
-      <img src="assets/images/Logo1.jpg" style="width: 100px;height: 100px" class="card-banner-img" alt="logo" >
-    </div>
+    <div class="flex items-center justify-center space-x-4"> <!-- Container for logo and site title with centered alignment and space between elements -->
+      <img src="assets/images/apiitlogo.jpg" alt="Logo" class="h-16 mr-4"> <!-- Decreased height and adjusted margin -->
+      <h1 class="text-white text-3xl font-bold tracking-wide">APIIT BLOG</h1> <!-- Increased font size and added tracking for better spacing -->
+    </div>>
     <div class="banner-text">
       <p class="font-semibold banner-content-title text-xl" style="color: white; margin-bottom: 5px">APIIT BLOG SYSTEM</p>
       <p class="font-normal banner-content text-xs" style="color: white">INSPIRE LOVE FOR LEARNING</p>

@@ -15,6 +15,7 @@ import {RegistrationComponent} from "./components/auth/registration/registration
 import {ModeratedBlogsComponent} from "./components/blogs/moderated-blogs/moderated-blogs.component";
 import {SingleBlogComponent} from "./components/single-blog/single-blog.component";
 import {AuthGuard} from "./core/gaurds/auth.gaurd";
+import {ProfileComponent} from "./components/users/profile/profile.component";
 
 export const routes: Routes = [
   {
@@ -67,6 +68,10 @@ export const routes: Routes = [
       {
         path: 'users/add-edit',
         component: AddEditUserComponent
+      },
+      {
+        path: 'users/profile',
+        component: ProfileComponent
       },
       {
         path: 'users',

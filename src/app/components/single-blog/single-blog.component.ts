@@ -3,7 +3,6 @@ import {DatePipe, NgIf} from "@angular/common";
 import {NzButtonComponent} from "ng-zorro-antd/button";
 import {BlogService} from "../../core/services/blog.service";
 import {ActivatedRoute, Router} from "@angular/router";
-import * as jsPDF from 'jspdf';
 @Component({
   selector: 'app-single-blog',
   standalone: true,
