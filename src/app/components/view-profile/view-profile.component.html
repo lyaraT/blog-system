@@ -1,0 +1,104 @@
+
+<header class="bg-gray-900 py-8"> <!-- Increased py value to make the navbar taller -->
+  <div class="container mx-auto flex items-center justify-between">
+    <div class="flex items-center justify-center space-x-4"> <!-- Container for logo and site title with centered alignment and space between elements -->
+      <img src="assets/images/apiitlogo.jpg" alt="Logo" class="h-16 w-auto mr-4"> <!-- Decreased height and adjusted margin -->
+      <h1 class="text-white text-3xl font-bold tracking-wide">APIIT BLOG</h1> <!-- Increased font size and added tracking for better spacing -->
+    </div>
+
+    <nav>
+      <ul class="flex space-x-4 text-white text-2xl"> <!-- Changed text-xl to text-2xl for even bigger font size -->
+        <li><a href="#" class="hover:underline">Home</a></li>
+        <li><a href="#" class="hover:underline">Contact Us</a></li>
+        <li><a (click)="navigateToLogin()" class="hover:underline" >Login</a></li>
+
+
+      </ul>
+    </nav>
+  </div>
+</header>
+
+<div class="max-w-4xl mx-auto px-8 py-12 bg-white shadow-lg rounded-lg">
+  <h2 class="text-5xl font-bold mb-10 text-center text-blue-900 font-serif">Meet the Author</h2>
+
+  <!-- Profile Picture -->
+  <div class="flex justify-center mb-12">
+    <div class="h-64 w-64 rounded-full overflow-hidden">
+      <!-- Placeholder image for demonstration -->
+      <img src="assets/images/mainhomepage.jpg" alt="Profile Picture" class="object-cover w-full h-full">
+    </div>
+  </div>
+
+  <!-- Social Media Links -->
+  <div class="flex justify-center space-x-10 mb-12">
+    <!-- LinkedIn -->
+    <a href="#" class="text-blue-500 hover:text-blue-700 text-4xl">
+      <i class="fab fa-linkedin-in"></i>
+    </a>
+
+    <!-- Instagram -->
+    <a href="#" class="text-pink-500 hover:text-pink-700 text-4xl">
+      <i class="fab fa-instagram"></i>
+    </a>
+
+    <!-- Facebook -->
+    <a href="#" class="text-blue-600 hover:text-blue-800 text-4xl">
+      <i class="fab fa-facebook-f"></i>
+    </a>
+
+    <!-- Twitter -->
+    <a href="#" class="text-blue-400 hover:text-blue-600 text-4xl">
+      <i class="fab fa-twitter"></i>
+    </a>
+  </div>
+
+  <!-- Full Name -->
+  <div class="mb-8">
+    <label class="text-gray-700 text-lg font-bold mb-2">Full Name:</label>
+    <span class="text-xl text-gray-700 ml-4">John Doe</span>
+  </div>
+
+  <!-- About Me -->
+  <div class="mb-8">
+    <label class="text-gray-700 text-lg font-bold mb-2">About Me:</label>
+    <p class="text-lg text-gray-700 mt-2">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed viverra felis nec felis porttitor aliquet.</p>
+  </div>
+
+  <!-- Contact Information -->
+  <div class="mb-8">
+    <label class="text-gray-700 text-lg font-bold mb-2">Contact Information:</label>
+    <span class="text-xl text-gray-700 ml-4">john.doe&#64;example.com</span>
+  </div>
+
+  <!-- Location -->
+  <div class="mb-12">
+    <label class="text-gray-700 text-lg font-bold mb-2">Location:</label>
+    <span class="text-xl text-gray-700 ml-4">New York, USA</span>
+  </div>
+
+
+</div>
+
+
+
+
+
+<footer class="bg-gray-900 py-12 mt-32">
+  <div class="container mx-auto text-white px-4 flex flex-col md:flex-row justify-between items-center">
+    <div class="mb-6 md:mb-0">
+      <p class="text-gray-400 text-2xl">APIIT Insights: Where Knowledge Meets Inspiration, Community Connects,<br> Ideas Flourish, Innovation Takes Flight,<br> and Boundless Opportunities Await.</p>
+      <p class="mt-4">&copy; 2024 Apiit Blog Site. All rights reserved.</p>
+    </div>
+
+    <div>
+      <h3 class="text-2xl font-semibold mb-2 text-right text-white">Stay Connected</h3>
+      <ul class="space-y-2 text-right">
+        <li><a href="#" class="hover:text-gray-400">Home</a></li>
+        <li><a href="#" class="hover:text-gray-400">Contact Us</a></li>
+        <li><a href="#" class="hover:text-gray-400">Login</a></li>
+      </ul>
+    </div>
+
+  </div>
+</footer>
+
