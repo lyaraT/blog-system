@@ -24,6 +24,12 @@
             <li nz-menu-item routerLink="/admin/contact-us">Responses</li>
           </ul>
         </li>
+        <li nz-submenu nzTitle="profile" nzIcon="user" >
+          <ul>
+            <li nz-menu-item routerLink="/admin/users/profile">Author Profile</li>
+
+          </ul>
+        </li>
       </ul>
       <div class="w-full mt-10 flex justify-center">
         <button nz-button class="primary" (click)="logout()">Logout</button>

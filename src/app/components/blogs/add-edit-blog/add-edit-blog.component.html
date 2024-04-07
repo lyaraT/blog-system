@@ -21,7 +21,7 @@
     </div>
     <div class="mb-4 flex flex-col">
       <label for="author" class="text-gray-700 text-xl font-bold mb-2">Author</label>
-      <input type="text" id="author" name="author"
+      <input type="text" id="author" name="author" [disabled]="true"
              class="w-full px-4 py-4 border border-gray-300 rounded-md focus:outline-none focus:border-blue-400 placeholder-gray-500 text-lg"
              placeholder="Enter author" formControlName="author">
     </div>
@@ -36,13 +36,13 @@
     </div>
     <div class="mb-4 flex flex-col">
       <label for="faculty" class="text-gray-700 text-xl font-bold mb-2">Image</label>
-      <nz-upload
-      >
-        <button nz-button>
-          <span nz-icon nzType="upload"></span>
-          Click to Upload
-        </button>
-      </nz-upload>
+<!--      <nz-upload-->
+<!--      >-->
+<!--        <button nz-button>-->
+<!--          <span nz-icon nzType="upload"></span>-->
+<!--          Click to Upload-->
+<!--        </button>-->
+<!--      </nz-upload>-->
     </div>
   </form>
   <div class="mb-4 flex justify-center">

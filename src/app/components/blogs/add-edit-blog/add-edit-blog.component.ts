@@ -24,6 +24,7 @@ import {Subscription} from "rxjs";
 export class AddEditBlogComponent implements OnInit {
   file: any;
   blogForm!: FormGroup;
+  user: any;
 
   constructor(private msg: NzMessageService, private filesService: FileService
     , private formBuilder: FormBuilder, private blogService: BlogService,
@@ -34,6 +35,9 @@ export class AddEditBlogComponent implements OnInit {
 
   ngOnInit(): void {
     this.initBlogForm();
+    this.user = this.authService.getLoggedInUser();
+    this.blogForm.get('author')?.patchValue(`${this.user.fullname} (${this.user.role})`)
+    this.blogForm.get('author')?.disable()
   }
 
   initBlogForm(): void {
@@ -53,7 +57,8 @@ export class AddEditBlogComponent implements OnInit {
 
   submit(): void {
     const user = this.authService.getLoggedInUser();
-
+    this.blogForm.get('author')?.enable()
+    this.blogForm.get('author')?.patchValue(this.user.userId)
     if (user.role === 'Admin'){
       this.blogForm.get('status')?.patchValue(1);
     }

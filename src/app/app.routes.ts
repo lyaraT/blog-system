@@ -16,6 +16,7 @@ import {ModeratedBlogsComponent} from "./components/blogs/moderated-blogs/modera
 import {SingleBlogComponent} from "./components/single-blog/single-blog.component";
 import {AuthGuard} from "./core/gaurds/auth.gaurd";
 import {ProfileComponent} from "./components/users/profile/profile.component";
+import {ViewProfileComponent} from "./components/view-profile/view-profile.component";
 
 export const routes: Routes = [
   {
@@ -26,6 +27,10 @@ export const routes: Routes = [
   {
     path:'homepage',
     component: HomepageComponent
+  },
+  {
+    path:'author-profile/:id',
+    component: ViewProfileComponent
   },
   {
     path:'single-blog/:id',

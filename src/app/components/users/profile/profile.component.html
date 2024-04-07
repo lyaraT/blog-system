@@ -1,1 +1,76 @@
-<p>profile works!</p>
+<div class="max-w-xl mx-auto px-4 py-8">
+  <h2 class="text-4xl font-bold mb-8 text-center text-blue-900 font-serif">Edit Author Profile</h2>
+
+  <form class="space-y-8">
+    <!-- Profile Picture -->
+    <div class="flex justify-center mb-8">
+      <div class="h-40 w-40 rounded-full overflow-hidden">
+        <!-- Placeholder image for demonstration -->
+        <img src="assets/images/mainhomepage.jpg" alt="Profile Picture" class="object-cover w-full h-full">
+      </div>
+    </div>
+
+    <!-- Profile Picture Upload -->
+    <div class="flex justify-center mb-8">
+      <label for="profile-picture" class="mt-2 px-4 py-2 bg-gray-200 text-gray-700 rounded-md cursor-pointer hover:bg-gray-300">
+        <svg class="h-6 w-6 inline-block mr-1" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 6v6m0 0v6m0-6h6m-6 0H6"></path>
+        </svg>
+        Upload Profile Picture
+        <input type="file" id="profile-picture" name="profile-picture" class="hidden">
+      </label>
+    </div>
+
+    <!-- Social Media Links -->
+    <div class="flex justify-center space-x-8 mb-8">
+      <!-- LinkedIn -->
+      <a href="#" class="text-blue-500 hover:text-blue-700 text-2xl">
+        <i class="fab fa-linkedin-in"></i>
+      </a>
+
+      <!-- Instagram -->
+      <a href="#" class="text-pink-500 hover:text-pink-700 text-2xl">
+        <i class="fab fa-instagram"></i>
+      </a>
+
+      <!-- Facebook -->
+      <a href="#" class="text-blue-600 hover:text-blue-800 text-2xl">
+        <i class="fab fa-facebook-f"></i>
+      </a>
+
+      <!-- Twitter -->
+      <a href="#" class="text-blue-400 hover:text-blue-600 text-2xl">
+        <i class="fab fa-twitter"></i>
+      </a>
+    </div>
+
+    <!-- Full Name -->
+    <div>
+      <label for="full-name" class="text-gray-700 text-lg font-bold mb-2">Full Name</label>
+      <input type="text" id="full-name" name="full-name" class="mt-1 p-3 block w-full border-gray-300 rounded-md shadow-sm">
+    </div>
+
+    <!-- About Me -->
+    <div>
+      <label for="about-me" class="text-gray-700 text-lg font-bold mb-2">About Me</label>
+      <textarea id="about-me" name="about-me" rows="3" class="mt-1 p-3 block w-full border-gray-300 rounded-md shadow-sm"></textarea>
+    </div>
+
+    <!-- Contact Information -->
+    <div>
+      <label for="contact-info" class="text-gray-700 text-lg font-bold mb-2">Contact Information</label>
+      <input type="text" id="contact-info" name="contact-info" class="mt-1 p-3 block w-full border-gray-300 rounded-md shadow-sm">
+    </div>
+
+    <!-- Location -->
+    <div>
+      <label for="location" class="text-gray-700 text-lg font-bold mb-2">Location</label>
+      <input type="text" id="location" name="location" class="mt-1 p-3 block w-full border-gray-300 rounded-md shadow-sm">
+    </div>
+
+    <!-- Submit Button -->
+    <div>
+      <button type="submit" class="w-full py-3 px-6 border border-transparent text-lg font-medium rounded-md text-white bg-indigo-600 hover:bg-indigo-700 focus:outline-none focus:border-indigo-700 focus:ring focus:ring-indigo-200 disabled:opacity-50">Save Profile</button>
+    </div>
+  </form>
+</div>
