@@ -1,7 +1,7 @@
 <div class="max-w-xl mx-auto px-4 py-8">
   <h2 class="text-4xl font-bold mb-8 text-center text-blue-900 font-serif">Edit Author Profile</h2>
 
-  <form class="space-y-8">
+  <form class="space-y-8" [formGroup]="profileForm">
     <!-- Profile Picture -->
     <div class="flex justify-center mb-8">
       <div class="h-40 w-40 rounded-full overflow-hidden">
@@ -47,30 +47,35 @@
     <!-- Full Name -->
     <div>
       <label for="full-name" class="text-gray-700 text-lg font-bold mb-2">Full Name</label>
-      <input type="text" id="full-name" name="full-name" class="mt-1 p-3 block w-full border-gray-300 rounded-md shadow-sm">
+      <input formControlName="fullname" type="text" id="full-name" name="full-name" class="mt-1 p-3 block w-full border-gray-300 rounded-md shadow-sm">
     </div>
 
     <!-- About Me -->
     <div>
       <label for="about-me" class="text-gray-700 text-lg font-bold mb-2">About Me</label>
-      <textarea id="about-me" name="about-me" rows="3" class="mt-1 p-3 block w-full border-gray-300 rounded-md shadow-sm"></textarea>
+      <textarea formControlName="aboutMe" id="about-me" name="about-me" rows="3" class="mt-1 p-3 block w-full border-gray-300 rounded-md shadow-sm"></textarea>
     </div>
 
     <!-- Contact Information -->
     <div>
-      <label for="contact-info" class="text-gray-700 text-lg font-bold mb-2">Contact Information</label>
-      <input type="text" id="contact-info" name="contact-info" class="mt-1 p-3 block w-full border-gray-300 rounded-md shadow-sm">
+      <label for="contact-num" class="text-gray-700 text-lg font-bold mb-2">Contact Number</label>
+      <input formControlName="mobileNo" type="text" id="contact-num" name="contact-info" class="mt-1 p-3 block w-full border-gray-300 rounded-md shadow-sm">
+    </div>
+
+    <div>
+      <label for="contact-num" class="text-gray-700 text-lg font-bold mb-2">Email Address</label>
+      <input formControlName="email" type="text" id="contact-email" name="contact-info" class="mt-1 p-3 block w-full border-gray-300 rounded-md shadow-sm">
     </div>
 
     <!-- Location -->
     <div>
       <label for="location" class="text-gray-700 text-lg font-bold mb-2">Location</label>
-      <input type="text" id="location" name="location" class="mt-1 p-3 block w-full border-gray-300 rounded-md shadow-sm">
+      <input formControlName="location" type="text" id="location" name="location" class="mt-1 p-3 block w-full border-gray-300 rounded-md shadow-sm">
     </div>
 
     <!-- Submit Button -->
     <div>
-      <button type="submit" class="w-full py-3 px-6 border border-transparent text-lg font-medium rounded-md text-white bg-indigo-600 hover:bg-indigo-700 focus:outline-none focus:border-indigo-700 focus:ring focus:ring-indigo-200 disabled:opacity-50">Save Profile</button>
+      <button (click)="onSubmit()" type="submit" class="w-full py-3 px-6 border border-transparent text-lg font-medium rounded-md text-white bg-indigo-600 hover:bg-indigo-700 focus:outline-none focus:border-indigo-700 focus:ring focus:ring-indigo-200 disabled:opacity-50">Save Profile</button>
     </div>
   </form>
 </div>

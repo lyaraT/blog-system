@@ -37,6 +37,7 @@ export class AddEditBlogComponent implements OnInit {
     this.initBlogForm();
     this.user = this.authService.getLoggedInUser();
     this.blogForm.get('author')?.patchValue(`${this.user.fullname} (${this.user.role})`)
+    this.blogForm.get('authorId')?.patchValue(this.user.userId)
     this.blogForm.get('author')?.disable()
   }
 
@@ -47,6 +48,7 @@ export class AddEditBlogComponent implements OnInit {
       content: [null, Validators.compose([Validators.required])],
       // password: [null, Validators.compose([Validators.required])],
       author: [null, Validators.compose([Validators.required])],
+      authorId: [null, Validators.compose([Validators.required])],
       imgUrl: [null],
       type: [null, Validators.compose([Validators.required])],
       isActive: [true, Validators.compose([Validators.required])],
@@ -58,7 +60,7 @@ export class AddEditBlogComponent implements OnInit {
   submit(): void {
     const user = this.authService.getLoggedInUser();
     this.blogForm.get('author')?.enable()
-    this.blogForm.get('author')?.patchValue(this.user.userId)
+
     if (user.role === 'Admin'){
       this.blogForm.get('status')?.patchValue(1);
     }

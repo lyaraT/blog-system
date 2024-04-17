@@ -47,6 +47,10 @@ export class SingleBlogComponent implements OnInit {
     this.router.navigate(['/homepage'])
   }
 
+  navToAuthorProfile(): void {
+    this.router.navigate([`/author-profile/${this.blogData.authorId}`])
+  }
+
   // Method to share the current page on Facebook
   shareOnFacebook() {
     const currentUrl = window.location.href;

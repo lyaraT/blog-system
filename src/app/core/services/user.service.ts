@@ -48,4 +48,8 @@ export class UserService {
   updateUsers(payload: any): Observable<any> {
     return this.http.post(`${SETTINGS.BASE_API}/user/update`, payload);
   }
+
+  getOneUser(payload: any): Observable<any> {
+    return this.http.get(`${SETTINGS.BASE_API}/user/get-one/${payload}`);
+  }
 }
