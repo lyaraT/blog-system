@@ -14,7 +14,13 @@
           "builder": "@angular-devkit/build-angular:application",
           "options": {
             "allowedCommonJsDependencies": [
-              "crypto-js"
+              "crypto-js",
+              "canvg",
+              "html2canvas",
+              "dompurify",
+              "core-js",
+              "raf",
+              "rgbcolor"
             ],
             "outputPath": "dist/blog-system",
             "index": "src/index.html",
