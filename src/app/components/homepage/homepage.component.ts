@@ -82,6 +82,16 @@ export class HomepageComponent implements OnInit {
   navToSingle(id: any): void {
     this.router.navigate([`/single-blog/${id}`])
   }
-
+//Declare variables for carousel
+  images : string[]=[
+    'assets/images/c1.jpg',
+    'assets/images/c2.jpg',
+    'assets/images/c3.jpg',
+  ];
+  overlayTexts: string[] = [
+    'Discover Endless Knowledge within our Library',
+    'Undergo Legal Practice in Action with our own Moot Court',
+    'Unleash Innovation at the State-of-the-Art Computer Lab',
+  ];
 }
 

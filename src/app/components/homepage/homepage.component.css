@@ -32,3 +32,53 @@ nz-select {
   margin: 0 8px 10px 0;
   width: 220px;
 }
+.carousel-container {
+  width: 100%;
+  height: 600px;
+  overflow: hidden;
+  border-radius:5px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.carousel-image {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border-radius:7px;
+}
+.overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(128, 128, 128, 0.5); /* Transparent grey overlay */
+}
+
+.overlay-text {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  color: white;
+  font-size: 24px;
+  font-weight: bold;
+  text-align: center;
+}
+
+.testimonial-card {
+  min-width: 320px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.testimonial-image {
+  width: 130px;
+  height: 130px;
+  border-radius: 50%;
+}
+
+/* Footer */
+footer {
+  background-color: #333;
+  box-shadow: 0 -2px 4px rgba(0, 0, 0, 0.1);
+}

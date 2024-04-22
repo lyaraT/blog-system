@@ -1,9 +1,11 @@
 <header class="bg-gray-900 py-8"> <!-- Increased py value to make the navbar taller -->
   <div class="container mx-auto flex items-center justify-between">
     <div class="flex items-center justify-center space-x-4"> <!-- Container for logo and site title with centered alignment and space between elements -->
-      <img src="assets/images/apiitlogo.jpg" alt="Logo" class="h-16 w-auto mr-4"> <!-- Decreased height and adjusted margin -->
-      <h1 class="text-white text-3xl font-bold tracking-wide">APIIT BLOG</h1> <!-- Increased font size and added tracking for better spacing -->
+      <img src="assets/images/LOGO.jpg" alt="Logo" class="h-16 w-auto md:h-24 md:w-auto rounded-full mr-4"> <!-- Added responsive classes for larger screens and increased height for zoom effect -->
+      <h1 class="text-white text-3xl md:text-4xl font-bold tracking-wide">APIIT BLOG</h1> <!-- Increased font size and added tracking for better spacing -->
     </div>
+
+
 
     <nav>
       <ul class="flex space-x-4 text-white text-2xl"> <!-- Changed text-xl to text-2xl for even bigger font size -->
@@ -18,21 +20,19 @@
 </header>
 
 
-
-
-
 <section class="bg-gray-900 text-white py-96 relative">
-  <img src="assets/images/b.jpg" alt="Welcome Image" class="absolute inset-0 w-full h-full object-cover">
-  <div class="absolute inset-0 bg-blue-300 opacity-40"></div>
+  <img src="assets/images/b.jpg" alt="Welcome Image" class="absolute inset-0 w-full h-full object-cover" style="filter: blur(1px);">
+  <div class="absolute inset-0 bg-gradient-to-b from-transparent to-black opacity-70"></div>
   <div class="container mx-auto text-center relative">
     <div class="absolute inset-0 flex flex-col justify-center items-center">
-      <h1 class="text-7xl font-bold mb-6">Student Blog</h1> <!-- Increased text size to text-7xl -->
-      <p class="text-3xl">APIIT Insights: Where Knowledge Meets Inspiration, Community Connects,<br> Ideas Flourish, Innovation Takes Flight,<br> and Boundless Opportunities Await.</p> <!-- Increased text size to text-3xl -->
+      <h1 class="text-7xl font-bold mb-6">Student Blog</h1>
+      <p class="text-3xl">APIIT Insights: Where Knowledge Meets Inspiration, Community Connects,<br> Ideas Flourish, Innovation Takes Flight,<br> and Boundless Opportunities Await.</p>
     </div>
   </div>
-
-
 </section>
+
+
+
 
 <section class="container mx-auto my-8 mt-40">
   <h2 class="text-4xl font-bold mb-8 text-center">Testimonials</h2>
@@ -40,31 +40,47 @@
   <div class="overflow-x-auto scrollbar-hide">
     <div class="flex justify-between">
       <!-- Testimonial Card 1 -->
-      <div class="bg-white rounded-lg shadow-md p-8 mr-8" style="min-width: 320px;">
+      <!-- Testimonial Card 1 -->
+      <div class="bg-white rounded-lg shadow-md p-8 mr-8" style="min-width: 320px; transition: transform 0.3s ease;" onmouseover="this.style.transform='translateY(-5px)'" onmouseout="this.style.transform='translateY(0)'">
+        <div class="flex justify-center mb-4"> <!-- Add flex container for image and center it -->
+          <img src="assets/images/2.jpeg" alt="Testimonial Image" class="testimonial-image">
+        </div>
         <p class="text-gray-600 text-center mb-8 text-lg">"APIIT is a great place to nurture knowledge, where ideas flourish, and innovation takes flight. Boundless opportunities await."</p>
         <h3 class="text-lg font-semibold text-gray-600 mb-0 text-center">Rushda Niyas (Assistant Director, Board of Investment)</h3>
       </div>
 
       <!-- Testimonial Card 2 -->
-      <div class="bg-white rounded-lg shadow-md p-8 mr-8" style="min-width: 320px;">
+      <div class="bg-white rounded-lg shadow-md p-8 mr-8" style="min-width: 320px; transition: transform 0.3s ease;" onmouseover="this.style.transform='translateY(-5px)'" onmouseout="this.style.transform='translateY(0)'">
+        <div class="flex justify-center mb-4"> <!-- Add flex container for image and center it -->
+          <img src="assets/images/3.jpeg" alt="Testimonial Image" class="testimonial-image">
+        </div>
         <p class="text-gray-600 text-center mb-8 text-lg">"APIIT provides an exceptional learning environment and resources. It's a place where knowledge meets inspiration."</p>
         <h3 class="text-lg font-semibold text-gray-600 mb-0 text-center">Premuditha Perera (Head of Engineering, DreamStart Labs)</h3>
       </div>
 
       <!-- Testimonial Card 3 -->
-      <div class="bg-white rounded-lg shadow-md p-8 mr-8" style="min-width: 320px;">
+      <div class="bg-white rounded-lg shadow-md p-8 mr-8" style="min-width: 320px; transition: transform 0.3s ease;" onmouseover="this.style.transform='translateY(-5px)'" onmouseout="this.style.transform='translateY(0)'">
+        <div class="flex justify-center mb-4"> <!-- Add flex container for image and center it -->
+          <img src="assets/images/1.jpeg" alt="Testimonial Image" class="testimonial-image">
+        </div>
         <p class="text-gray-600 text-center mb-8 text-lg">"Staffordshire University’s LLM program combines both technical and practical legal aspects. It prepared me for career success."</p>
         <h3 class="text-lg font-semibold text-gray-600 mb-0 text-center">Dimuth Fernando (Attorney-at-Law, pursuing)</h3>
       </div>
 
       <!-- Testimonial Card 4 -->
-      <div class="bg-white rounded-lg shadow-md p-8 mr-8" style="min-width: 320px;">
+      <div class="bg-white rounded-lg shadow-md p-8 mr-8" style="min-width: 320px; transition: transform 0.3s ease;" onmouseover="this.style.transform='translateY(-5px)'" onmouseout="this.style.transform='translateY(0)'">
+        <div class="flex justify-center mb-4"> <!-- Add flex container for image and center it -->
+          <img src="assets/images/4.jpeg" alt="Testimonial Image" class="testimonial-image">
+        </div>
         <p class="text-gray-600 text-center mb-8 text-lg">"APIIT provides an exceptional learning environment and resources. It's a place where knowledge meets inspiration."</p>
         <h3 class="text-lg font-semibold text-gray-600 mb-0 text-center">Samantha Silva (Professor of Computer Science)</h3>
       </div>
 
       <!-- Testimonial Card 5 -->
-      <div class="bg-white rounded-lg shadow-md p-8" style="min-width: 320px;">
+      <div class="bg-white rounded-lg shadow-md p-8 mr-8" style="min-width: 320px; transition: transform 0.3s ease;" onmouseover="this.style.transform='translateY(-5px)'" onmouseout="this.style.transform='translateY(0)'">
+        <div class="flex justify-center mb-4"> <!-- Add flex container for image and center it -->
+          <img src="assets/images/4.jpeg" alt="Testimonial Image" class="testimonial-image">
+        </div>
         <p class="text-gray-600 text-center mb-8 text-lg">"APIIT provides an exceptional learning environment and resources. It's a place where knowledge meets inspiration."</p>
         <h3 class="text-lg font-semibold text-gray-600 mb-0 text-center">Samantha Silva (Professor of Computer Science)</h3>
       </div>
@@ -77,36 +93,28 @@
 
 
 
-<!-- News & Events Section -->
-<section class="bg-gray-200 py-20">
-  <div class="container mx-auto text-center">
-    <h2 class="text-4xl font-bold mb-4">News & Events</h2>
+<!-- img-->
+<div class="carousel-container relative">
+  <nz-carousel [nzEffect]="effect" [nzAutoPlay]="true">
+    <div *ngFor="let image of images; let i = index" nz-carousel-content>
+      <img [src]="image" alt="Carousel Image" class="carousel-image">
+      <div class="overlay"></div> <!-- Add overlay -->
+      <div class="overlay-text">{{ overlayTexts[i] }}</div> <!-- Add overlay text based on index -->
+    </div>
+  </nz-carousel>
+</div>
 
-    <nz-carousel [nzEffect]="effect" [nzAutoPlay]="true">
-      @for (index of array; track index) {
-        <div nz-carousel-content>
-          <div class="flex flex-col lg:flex-row justify-center md:mt-24 lg:justify-between items-center">
-            <!-- Image Div -->
-            <div class="lg:w-1/2">
-              <img src="assets/images/whats-university-like-accepted-students.jpg" alt="Your Image Alt Text" class="w-full h-auto object-cover rounded-lg shadow-md mt-6 lg:mt-0">
-            </div>
 
-            <!-- Content Div -->
-            <div class="lg:w-1/2 px-4 mt-10 lg:mt-0">
-              <!-- Heading -->
-              <h3 class="text-2xl font-bold mb-2 text-black">Avurudu Celebrations</h3>
-              <!-- Paragraph -->
-              <p class="text-lg text-black leading-normal mt-8 lg:mt-12" style="font-size: 18px;">Avurudu, also known as Sinhala and Tamil New Year, is an important cultural festival celebrated by the Sinhalese and Tamil communities in Sri Lanka. It marks the beginning of the new year according to the traditional Sinhala and Tamil calendars. The festival usually falls on April 13th or 14th each year, coinciding with the astrological transition of the sun from Pisces to Aries. Avurudu is a time for family gatherings, traditional rituals, delicious food, and various festive activities.</p>
-              <!-- Read More Button -->
-              <button nz-button nzType="primary" class="mt-6 max-w-xs bg-white text-black px-3 py-3 text-sm h-12">Read More</button>
-            </div>
 
-          </div>
-        </div>
-      }
-    </nz-carousel>
-  </div>
-</section>
+
+
+
+
+
+
+
+
+
 
 
 <!-- Blog Section -->

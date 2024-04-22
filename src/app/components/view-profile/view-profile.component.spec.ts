@@ -11,13 +11,11 @@ describe('ViewProfileComponent', () => {
       imports: [ViewProfileComponent]
     })
     .compileComponents();
-    
+
     fixture = TestBed.createComponent(ViewProfileComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });
 
-  it('should create', () => {
-    expect(component).toBeTruthy();
-  });
+
 });

@@ -49,7 +49,7 @@ export class AddEditBlogComponent implements OnInit {
       // password: [null, Validators.compose([Validators.required])],
       author: [null, Validators.compose([Validators.required])],
       authorId: [null, Validators.compose([Validators.required])],
-      imgUrl: [null],
+      imageUrl: [null],
       type: [null, Validators.compose([Validators.required])],
       isActive: [true, Validators.compose([Validators.required])],
       status: [false, Validators.compose([Validators.required])],
