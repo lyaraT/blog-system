@@ -11,12 +11,13 @@ import {NzButtonComponent} from "ng-zorro-antd/button";
     ],
   templateUrl: './view-profile.component.html',
   styleUrl: './view-profile.component.css'
+
 })
 export class ViewProfileComponent implements OnInit{
 
   authorData:any;
   authorId:any;
-constructor( private router: Router, private route: ActivatedRoute, private userService: UserService) {
+constructor( private router: Router, private route: ActivatedRoute, private userService: UserService,) {
 }
 
 

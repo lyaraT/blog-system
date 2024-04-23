@@ -25,7 +25,7 @@
   <div class="absolute inset-0 bg-gradient-to-b from-transparent to-black opacity-70"></div>
   <div class="container mx-auto text-center relative">
     <div class="absolute inset-0 flex flex-col justify-center items-center">
-      <h1 class="text-7xl font-bold mb-6">Student Blog</h1>
+      <h1 class="text-6xl font-bold mb-6 text-white">Student Blog</h1>
       <p class="text-3xl">APIIT Insights: Where Knowledge Meets Inspiration, Community Connects,<br> Ideas Flourish, Innovation Takes Flight,<br> and Boundless Opportunities Await.</p>
     </div>
   </div>
@@ -99,7 +99,7 @@
     <div *ngFor="let image of images; let i = index" nz-carousel-content>
       <img [src]="image" alt="Carousel Image" class="carousel-image">
       <div class="overlay"></div> <!-- Add overlay -->
-      <div class="overlay-text">{{ overlayTexts[i] }}</div> <!-- Add overlay text based on index -->
+      <div class="overlay-text">{{ overlayTexts[i] }}</div>
     </div>
   </nz-carousel>
 </div>

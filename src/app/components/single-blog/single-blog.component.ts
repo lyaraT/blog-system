@@ -72,18 +72,6 @@ export class SingleBlogComponent implements OnInit {
     window.open(linkedInUrl, '_blank');
   }
 
-  downloadBlogPost(): void {
-    // Create a temporary link with the blog content and trigger download
-    const blob = new Blob([this.blogData.content], {type: 'text/plain'});
-    const url = window.URL.createObjectURL(blob);
-    const a = document.createElement('a');
-    a.href = url;
-    a.download = `${this.blogData.title}.txt`;
-    document.body.appendChild(a);
-    a.click();
-    window.URL.revokeObjectURL(url);
-    document.body.removeChild(a);
-  }
 
   generatePDF(): void {
     const doc = new jsPDF();

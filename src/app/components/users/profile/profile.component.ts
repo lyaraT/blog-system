@@ -4,6 +4,7 @@ import {FormBuilder, FormGroup, ReactiveFormsModule, Validators} from "@angular/
 import {UserService} from "../../../core/services/user.service";
 import {NzMessageService} from "ng-zorro-antd/message";
 
+
 @Component({
   selector: 'app-profile',
   standalone: true,
@@ -11,7 +12,7 @@ import {NzMessageService} from "ng-zorro-antd/message";
     ReactiveFormsModule
   ],
   templateUrl: './profile.component.html',
-  styleUrl: './profile.component.css'
+  styleUrl: './profile.component.css',
 })
 export class ProfileComponent implements OnInit{
 

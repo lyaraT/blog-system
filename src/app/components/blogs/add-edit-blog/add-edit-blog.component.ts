@@ -7,6 +7,8 @@ import {FileService} from "../../../core/services/file.service";
 import {FormBuilder, FormGroup, ReactiveFormsModule, Validators} from "@angular/forms";
 import {BlogService} from "../../../core/services/blog.service";
 import {AuthService} from "../../../core/services/auth.service";
+import { AngularFireStorage } from '@angular/fire/compat/storage';
+
 import {Subscription} from "rxjs";
 
 @Component({
@@ -25,6 +27,7 @@ export class AddEditBlogComponent implements OnInit {
   file: any;
   blogForm!: FormGroup;
   user: any;
+
 
   constructor(private msg: NzMessageService, private filesService: FileService
     , private formBuilder: FormBuilder, private blogService: BlogService,
@@ -49,7 +52,7 @@ export class AddEditBlogComponent implements OnInit {
       // password: [null, Validators.compose([Validators.required])],
       author: [null, Validators.compose([Validators.required])],
       authorId: [null, Validators.compose([Validators.required])],
-      imageUrl: [null],
+      imgUrl: [null],
       type: [null, Validators.compose([Validators.required])],
       isActive: [true, Validators.compose([Validators.required])],
       status: [false, Validators.compose([Validators.required])],
