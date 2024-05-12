@@ -53,7 +53,7 @@
   <br>
   <!-- Adjusted Blog Post Image -->
   <div class="container mx-auto flex justify-center mb-8 rounded-lg"> <!-- Increased mb for more bottom margin -->
-    <img src="assets/images/whats-university-like-accepted-students.jpg" alt="Studying Abroad" class="w-4/6 h-auto object-cover" style="border-radius: 15px"> <!-- Adjusted image width and added more margin -->
+    <img [src]="blogData.imgUrl" alt="Studying Abroad" class="w-4/6 h-auto object-cover" style="border-radius: 15px"> <!-- Adjusted image width and added more margin -->
   </div>
 
   <div class="container mx-auto py-4 px-4 text-center text-gray-600 text-lg"> <!-- Added text-lg class for larger font size -->
@@ -78,6 +78,14 @@
       <button nz-button class="download-button"(click)="generatePDF()">Download PDF</button> </div>
 
   </div>
+
+  <div class="button-container">
+
+    <!-- Download PDF button -->
+    <a [href]='blogData.pdfUrl' target="_blank">
+    <button nz-button class="download-button" >View  PDF (SAC)</button> </a></div>
+
+
 
   <div class="flex container mx-auto max-w-4xl py-12 px-4 text-center text-black justify-center gap-4">
     <button nz-button class="primary" (click)="navigateToView()">Back</button>

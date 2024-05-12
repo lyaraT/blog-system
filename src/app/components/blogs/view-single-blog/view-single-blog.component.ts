@@ -40,6 +40,7 @@ export class ViewSingleBlogComponent implements OnInit{
         (res: any) => {
           console.log(res)
           this.blogData = res[0];
+          this.uploadedImageUrl = res[0].imgUrl
         },
         (e: any) => {
           console.log(e)
@@ -48,6 +49,7 @@ export class ViewSingleBlogComponent implements OnInit{
     })
 
   }
+
 
   uploadImage(file: File): void {
     this.fileService.postFile(file, "FILE").subscribe(

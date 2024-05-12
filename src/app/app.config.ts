@@ -36,5 +36,5 @@ export const appConfig: ApplicationConfig = {
   providers: [provideRouter(routes), provideNzI18n(en_US), importProvidersFrom(FormsModule), provideAnimationsAsync(), importProvidersFrom([
     provideFirebaseApp(() => initializeApp(firebaseConfig)),
     provideStorage(() => getStorage())
-  ]), provideHttpClient(),NgxUiLoaderModule.forRoot(ngxUiLoaderConfig).ngModule,AuthGuard,]
+  ]), provideHttpClient(),NgxUiLoaderModule.forRoot(ngxUiLoaderConfig).ngModule,AuthGuard,],
 };

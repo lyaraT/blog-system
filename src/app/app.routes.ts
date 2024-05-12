@@ -17,6 +17,7 @@ import {SingleBlogComponent} from "./components/single-blog/single-blog.componen
 import {AuthGuard} from "./core/gaurds/auth.gaurd";
 import {ProfileComponent} from "./components/users/profile/profile.component";
 import {ViewProfileComponent} from "./components/view-profile/view-profile.component";
+import {StudentServiceRequestComponent} from "./components/student-service-request/student-service-request.component";
 
 export const routes: Routes = [
   {
@@ -27,6 +28,10 @@ export const routes: Routes = [
   {
     path:'homepage',
     component: HomepageComponent
+  },
+  {
+    path:'student-service',
+    component: StudentServiceRequestComponent
   },
   {
     path:'author-profile/:id',

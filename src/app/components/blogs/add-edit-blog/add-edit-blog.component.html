@@ -32,17 +32,62 @@
         <option value="BUSINESS ">Business Faculty</option>
         <option value="IT ">IT Faculty</option>
         <option value="LAW ">Law Faculty</option>
+        <option value="SAC ">SAC</option>
+      </select>
+    </div>
+    <div class="mb-4 flex flex-col">
+      <label for="club" class="text-gray-700 text-xl font-bold mb-2">Club</label>
+      <select id="club" name="club" formControlName="club"
+              class="w-full px-4 py-4 border border-gray-300 rounded-md focus:outline-none focus:border-blue-400 placeholder-gray-500 text-lg">
+
+        <option value="SAC">SAC</option>
+        <option value="RESOLVERS">RESOLVERS</option>
       </select>
     </div>
     <div class="mb-4 flex flex-col">
       <label for="faculty" class="text-gray-700 text-xl font-bold mb-2">Image</label>
-      <!--      <nz-upload-->
-      <!--      >-->
-      <!--        <button nz-button>-->
-      <!--          <span nz-icon nzType="upload"></span>-->
-      <!--          Click to Upload-->
-      <!--        </button>-->
-      <!--      </nz-upload>-->
+      <nz-upload [nzCustomRequest]="upload" [nzShowUploadList]="false" [nzMultiple]="false">
+        <button  nz-button nzType="primary">Add
+          Attachment
+        </button>
+      </nz-upload>
+    </div>
+    <div>
+      <div>
+
+        <div class="mb-3 flex  items-center mx-3 gap-5" *ngFor="let item of this.files; let i = index">
+          <a target="_blank" href="{{item.url}}">Blog Image</a>
+          <span nz-icon nzType="close-circle"
+                nzTheme="outline" [nzTheme]="'twotone'" [nzTwotoneColor]="'#ff0000'"
+                class="cursor-pointer" nz-popconfirm
+                nzPopconfirmTitle="Are you sure you want to delete this attachment"
+                (nzOnConfirm)="confirmRemoveAttachment(i)"
+          ></span>
+        </div>
+      </div>
+    </div>
+    <div class="mb-4 flex flex-col" *ngIf="showPdf === true">
+
+    <label for="faculty" class="text-gray-700 text-xl font-bold mb-2">PDF</label>
+      <nz-upload [nzCustomRequest]="uploadPdf" [nzShowUploadList]="false" [nzMultiple]="false">
+        <button  nz-button nzType="primary">Add
+          Pdf
+        </button>
+      </nz-upload>
+    </div>
+    <div *ngIf="showPdf === true">
+      <div>
+
+        <div class="mb-3 flex  items-center mx-3 gap-5" *ngFor="let item of this.pdf; let i = index">
+          <a target="_blank" href="{{item.url}}">PDF</a>
+          <span nz-icon nzType="close-circle"
+                nzTheme="outline" [nzTheme]="'twotone'" [nzTwotoneColor]="'#ff0000'"
+                class="cursor-pointer" nz-popconfirm
+                nzPopconfirmTitle="Are you sure you want to delete this attachment"
+                (nzOnConfirm)="confirmRemoveAttachmentPDF(i)"
+          ></span>
+        </div>
+      </div>
     </div>
   </form>
   <div class="mb-4 flex justify-center">

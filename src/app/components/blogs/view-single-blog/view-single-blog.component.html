@@ -31,6 +31,12 @@
     </p>
   </div>
 
+  <div class="">
+    <a [href]="blogData.pdfUrl" target="_blank">
+    <p  >View pdf</p>
+      </a>
+  </div>
+
   <div *ngIf="parameter !== 'mod'" class="flex container mx-auto max-w-4xl py-12 px-4 text-center text-black justify-center gap-4">
     <button nz-button class="primary" (click)="accept()">Accept</button>
     <button nz-button class="primary" (click)="reject()">Reject</button>

@@ -1,0 +1,37 @@
+<div class="container mx-auto max-w-4xl py-12 px-4 text-black shadow-md rounded-md bg-white bg-opacity-95">
+  <h2 class="text-4xl font-bold mb-8 text-center text-blue-900 font-serif">Student support Service</h2>
+  <form [formGroup]="requestForm">
+    <div class="mb-4 flex flex-col">
+      <label  class="text-gray-700 text-xl font-bold mb-2">Student Id</label>
+      <input type="text" id="studentId" name="studentId" form
+             class="w-full px-4 py-4 border border-gray-300 rounded-md focus:outline-none focus:border-blue-400 placeholder-gray-500 text-lg"
+             placeholder="Enter studentId" formControlName="studentId">
+    </div>
+    <div class="mb-4 flex flex-col">
+
+      <button nz-button [nzType]="'primary'" (click)="showModalF()"><span>Select Appointment</span></button>
+
+      <p>Time {{requestForm.get('sessionTime')?.value}}</p>
+      <p>Date {{requestForm.get('sessionDate')?.value}}</p>
+
+    </div>
+
+  </form>
+  <div class="mb-4 flex justify-center">
+    <button nz-button nzType="primary"  (click)="submit()">Submit Request</button>
+  </div>
+</div>
+
+<nz-modal [(nzVisible)]="showModal" nzTitle="Select Appointment Details" (nzOnCancel)="handleCancel()" (nzOnOk)="handleOk()">
+  <ng-container *nzModalContent>
+    <nz-date-picker [(ngModel)]="selectedDate" (ngModelChange)="onChangeDate($event)"></nz-date-picker>
+
+    <div class="mt-4">
+      <a *ngFor="let slot of timeSlots" (click)="setSlot(slot)">
+        <p style="background-color: lavenderblush"  class="mt-2 p-4">
+          {{slot}}
+        </p>
+      </a>
+    </div>
+  </ng-container>
+</nz-modal>

@@ -10,7 +10,7 @@
     <nav>
       <ul class="flex space-x-4 text-white text-2xl"> <!-- Changed text-xl to text-2xl for even bigger font size -->
         <li><a href="#" class="hover:underline">Home</a></li>
-        <li><a href="#" class="hover:underline">Contact Us</a></li>
+        <li><a href="/student-service" class="hover:underline">Contact SSS</a></li>
         <li><a (click)="navigateToLogin()" class="hover:underline" >Login</a></li>
 
 
@@ -160,7 +160,7 @@
     <!-- Blog Post Card 1 -->
     <div class="border rounded-lg overflow-hidden shadow-md bg-white" *ngFor="let blog of blogData">
       <!-- Blog Post Image -->
-      <img src="assets/images/whats-university-like-accepted-students.jpg" alt="Blog Post Image" class="w-full">
+      <img [src]="blog.imgUrl" alt="Blog Post Image" class="w-full">
       <!-- Blog Post Content -->
       <div class="p-4">
         <h3 class="text-xl font-semibold mb-2">{{blog.title}}</h3>

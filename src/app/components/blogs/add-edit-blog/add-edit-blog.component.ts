@@ -10,24 +10,29 @@ import {AuthService} from "../../../core/services/auth.service";
 import { AngularFireStorage } from '@angular/fire/compat/storage';
 
 import {Subscription} from "rxjs";
+import {NzPopconfirmDirective} from "ng-zorro-antd/popconfirm";
+import {CommonModule} from "@angular/common";
 
 @Component({
   selector: 'app-add-edit-blog',
   standalone: true,
   imports: [
+    CommonModule,
     NzUploadComponent,
     NzButtonComponent,
     NzIconDirective,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    NzPopconfirmDirective
   ],
   templateUrl: './add-edit-blog.component.html',
   styleUrl: './add-edit-blog.component.css'
 })
 export class AddEditBlogComponent implements OnInit {
-  file: any;
+  files: any[] = [];
+  pdf: any[] = [];
   blogForm!: FormGroup;
   user: any;
-
+  showPdf = false;
 
   constructor(private msg: NzMessageService, private filesService: FileService
     , private formBuilder: FormBuilder, private blogService: BlogService,
@@ -51,18 +56,33 @@ export class AddEditBlogComponent implements OnInit {
       content: [null, Validators.compose([Validators.required])],
       // password: [null, Validators.compose([Validators.required])],
       author: [null, Validators.compose([Validators.required])],
+      imgUrl: [null, ],
+      pdfUrl: [null, ],
+      club: [null, ],
       authorId: [null, Validators.compose([Validators.required])],
-      imgUrl: [null],
       type: [null, Validators.compose([Validators.required])],
       isActive: [true, Validators.compose([Validators.required])],
       status: [false, Validators.compose([Validators.required])],
     });
+
+    this.blogForm.get('club')?.valueChanges.subscribe((value: any)=>{
+      console.log(value)
+      if (value === 'SAC') {
+        console.log('inside')
+        this.showPdf = true
+      } else {
+        this.showPdf = false;
+      }
+    })
+
   }
 
 
   submit(): void {
     const user = this.authService.getLoggedInUser();
-    this.blogForm.get('author')?.enable()
+    this.blogForm.get('author')?.enable();
+    this.blogForm.get('imgUrl')?.patchValue(this.files[0].url)
+    this.blogForm.get('pdfUrl')?.patchValue(this.pdf[0].url)
 
     if (user.role === 'Admin'){
       this.blogForm.get('status')?.patchValue(1);
@@ -71,11 +91,47 @@ export class AddEditBlogComponent implements OnInit {
     console.log(this.blogForm.getRawValue())
     this.blogService.createBlog(this.blogForm.getRawValue()).subscribe(()=>{
       this.msg.create('success','Blog Created - Sent for Admin Moderation');
+      this.files = [];
+      this.pdf = [];
       this.blogForm.reset()
     });
   }
 
+  upload = (item: NzUploadXHRArgs) =>
+    this.filesService
+      .postFile(item.file, 'NOTES_AND_ATTACHMENT_UPLOAD')
+      .subscribe((res) => {
+        // this.message.create('success', Attachment has been uploaded!);
+        const data = res as any;
+        console.log(data);
+        if (data) {
+          this.files[0] = { url: data.url };
+          // this.uploadPointer = true;
+          console.log(this.files)
+        }
+      });
 
+  uploadPdf = (item: NzUploadXHRArgs) =>
+    this.filesService
+      .postFile(item.file, 'PDF')
+      .subscribe((res) => {
+        // this.message.create('success', Attachment has been uploaded!);
+        const data = res as any;
+        console.log(data);
+        if (data) {
+          this.pdf[0] = { url: data.url };
+          // this.uploadPointer = true;
+          console.log(this.files)
+        }
+      });
+
+  confirmRemoveAttachment(attachmentId: any): void {
+    this.files.splice(attachmentId, 1);
+  }
+
+  confirmRemoveAttachmentPDF(attachmentId: any): void {
+    this.pdf.splice(attachmentId, 1);
+  }
 
 
 }
