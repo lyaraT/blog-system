@@ -11,8 +11,8 @@
 
       <button nz-button [nzType]="'primary'" (click)="showModalF()"><span>Select Appointment</span></button>
 
-      <p>Time {{requestForm.get('sessionTime')?.value}}</p>
-      <p>Date {{requestForm.get('sessionDate')?.value}}</p>
+      <p>Time {{selectedTime}}</p>
+      <p>Date {{selectedFDate}}</p>
 
     </div>
 
@@ -27,11 +27,13 @@
     <nz-date-picker [(ngModel)]="selectedDate" (ngModelChange)="onChangeDate($event)"></nz-date-picker>
 
     <div class="mt-4">
-      <a *ngFor="let slot of timeSlots" (click)="setSlot(slot)">
-        <p style="background-color: lavenderblush"  class="mt-2 p-4">
+      <span *ngFor="let slot of timeSlots">
+      <a *ngIf="checkAvailable(slot)" (click)="setSlot(slot)"  [class.selected]="slot === selectedTime">
+        <p class="mt-2 p-4" [style.background-color]="slot === selectedTime ? 'lavenderblush' : 'transparent'">
           {{slot}}
         </p>
       </a>
+      </span>
     </div>
   </ng-container>
 </nz-modal>

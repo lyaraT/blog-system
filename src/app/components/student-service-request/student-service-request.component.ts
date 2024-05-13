@@ -12,6 +12,7 @@ import {AuthService} from "../../core/services/auth.service";
 import {NzModalComponent, NzModalContentDirective, NzModalModule, NzModalService} from 'ng-zorro-antd/modal';
 import {NzDatePickerComponent, NzDatePickerModule} from "ng-zorro-antd/date-picker";
 import {SETTINGS} from "../../core/constants/common.settings";
+import { StudentServiceService } from '../../core/services/student-service.service';
 
 @Component({
   selector: 'app-student-service-request',
@@ -52,7 +53,8 @@ export class StudentServiceRequestComponent implements OnInit {
 
   constructor(private msg: NzMessageService, private filesService: FileService
     , private formBuilder: FormBuilder, private blogService: BlogService,
-              private authService : AuthService, private modalService: NzModalService) {
+              private authService : AuthService, private modalService: NzModalService,
+            private studentReqService: StudentServiceService) {
   }
 
   showModal = false;
@@ -60,6 +62,7 @@ export class StudentServiceRequestComponent implements OnInit {
   selectedTime: any;
   selectedFDate: any;
   timeSlots: any;
+  bookedSlots:any;
 
   ngOnInit(): void {
     this.initBlogForm();
@@ -80,6 +83,26 @@ export class StudentServiceRequestComponent implements OnInit {
 
   onChangeDate(data:any): void {
     this.selectedFDate = data.toLocaleDateString('en-US', this.options).replace(/\//g, '-');
+    this.studentReqService.getResponsesByDate({sessionDate:this.selectedFDate}).subscribe((res)=>{
+this.bookedSlots = res.data;
+console.log(this.bookedSlots)
+    })
+  }
+
+  checkAvailable(slot:any): boolean {
+    
+if (this.bookedSlots) {
+  for(let x=0; x < this.bookedSlots.length; x++){
+    
+if(this.bookedSlots[x].sessionTime === slot){
+  console.log(this.bookedSlots[x]);;
+  console.log(slot)
+  
+  return false
+}
+  }
+}
+return true
   }
 
   handleOk(): void {
@@ -102,6 +125,14 @@ export class StudentServiceRequestComponent implements OnInit {
     this.requestForm.get('sessionTime')?.patchValue(this.selectedTime);
     this.requestForm.get('sessionDate')?.patchValue(this.selectedFDate);
 
-    console.log(this.requestForm.getRawValue())
+  this.studentReqService.createResponse(this.requestForm.getRawValue()).subscribe(()=>{
+    this.requestForm.reset();
+    this.selectedDate = '';
+    this.selectedFDate = '';
+    this.selectedTime = '';
+  
+      console.log(this.requestForm.getRawValue())
+  });
+  
   }
 }

@@ -30,6 +30,11 @@
 
           </ul>
         </li>
+        <li nz-submenu nzTitle="Appointments" nzIcon="user" *ngIf="user.role === 'SSS'">
+          <ul>
+            <li nz-menu-item routerLink="/admin/appointments">View Appointments</li>
+          </ul>
+        </li>
       </ul>
       <div class="w-full mt-10 flex justify-center">
         <button nz-button class="primary" (click)="logout()">Logout</button>

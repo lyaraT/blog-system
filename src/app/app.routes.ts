@@ -18,6 +18,7 @@ import {AuthGuard} from "./core/gaurds/auth.gaurd";
 import {ProfileComponent} from "./components/users/profile/profile.component";
 import {ViewProfileComponent} from "./components/view-profile/view-profile.component";
 import {StudentServiceRequestComponent} from "./components/student-service-request/student-service-request.component";
+import { AppointmentsComponent } from './components/appointments/appointments.component';
 
 export const routes: Routes = [
   {
@@ -114,6 +115,10 @@ export const routes: Routes = [
       {
         path: 'contact-us/:id',
         component: ViewSingleComponent
+      },
+      {
+        path: 'appointments',
+        component: AppointmentsComponent
       },
     ]
   }
