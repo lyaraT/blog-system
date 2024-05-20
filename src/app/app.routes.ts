@@ -19,6 +19,7 @@ import {ProfileComponent} from "./components/users/profile/profile.component";
 import {ViewProfileComponent} from "./components/view-profile/view-profile.component";
 import {StudentServiceRequestComponent} from "./components/student-service-request/student-service-request.component";
 import { AppointmentsComponent } from './components/appointments/appointments.component';
+import {LoginSssComponent} from "./components/auth/login-sss/login-sss.component";
 
 export const routes: Routes = [
   {
@@ -49,6 +50,13 @@ export const routes: Routes = [
         path: 'login',
         component: LoginComponent
       },
+
+       {
+        path: 'login-sss',
+        component: LoginSssComponent
+      },
+
+
       {
         path: 'forgot-password',
         component: ForgotPasswordComponent

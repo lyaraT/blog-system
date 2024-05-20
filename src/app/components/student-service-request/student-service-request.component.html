@@ -1,38 +1,37 @@
 <div class="container mx-auto max-w-4xl py-12 px-4 text-black shadow-md rounded-md bg-white bg-opacity-95">
-  <h2 class="text-4xl font-bold mb-8 text-center text-blue-900 font-serif">Student support Service</h2>
+  <div class="message-banner bg-blue-900 text-white text-center py-2 mb-4">
+    <p class="text-lg font-semibold">Welcome to Student Support Services</p>
+    <p class="text-sm">We're here to help you succeed. Please fill out the form below to book an appointment.</p>
+  </div>
+  <h2 class="text-4xl font-bold mb-8 text-center text-blue-900 ">Book an Appointment</h2>
   <form [formGroup]="requestForm">
     <div class="mb-4 flex flex-col">
-      <label  class="text-gray-700 text-xl font-bold mb-2">Student Id</label>
+      <label class="text-gray-700 text-xl font-bold mb-2">Student ID</label>
       <input type="text" id="studentId" name="studentId" form
              class="w-full px-4 py-4 border border-gray-300 rounded-md focus:outline-none focus:border-blue-400 placeholder-gray-500 text-lg"
-             placeholder="Enter studentId" formControlName="studentId">
+             placeholder="Enter Student ID" formControlName="studentId">
     </div>
     <div class="mb-4 flex flex-col">
-
-      <button nz-button [nzType]="'primary'" (click)="showModalF()"><span>Select Appointment</span></button>
-
-      <p>Time {{selectedTime}}</p>
-      <p>Date {{selectedFDate}}</p>
-
+      <button nz-button [nzType]="'primary'" (click)="showModalF()" class="w-full bg-blue-900"><span>Select Appointment</span></button>
+      <p>Selected Time: {{selectedTime}}</p>
+      <p>Selected Date: {{selectedFDate}}</p>
     </div>
-
   </form>
   <div class="mb-4 flex justify-center">
-    <button nz-button nzType="primary"  (click)="submit()">Submit Request</button>
+    <button nz-button nzType="primary" (click)="submit()" class="w-full bg-blue-900">Submit Request</button>
   </div>
 </div>
 
 <nz-modal [(nzVisible)]="showModal" nzTitle="Select Appointment Details" (nzOnCancel)="handleCancel()" (nzOnOk)="handleOk()">
   <ng-container *nzModalContent>
     <nz-date-picker [(ngModel)]="selectedDate" (ngModelChange)="onChangeDate($event)"></nz-date-picker>
-
     <div class="mt-4">
       <span *ngFor="let slot of timeSlots">
-      <a *ngIf="checkAvailable(slot)" (click)="setSlot(slot)"  [class.selected]="slot === selectedTime">
-        <p class="mt-2 p-4" [style.background-color]="slot === selectedTime ? 'lavenderblush' : 'transparent'">
-          {{slot}}
-        </p>
-      </a>
+        <a *ngIf="checkAvailable(slot)" (click)="setSlot(slot)" [class.selected]="slot === selectedTime">
+          <p class="mt-2 p-4" [style.background-color]="slot === selectedTime ? 'lavenderblush' : 'transparent'">
+            {{slot}}
+          </p>
+        </a>
       </span>
     </div>
   </ng-container>

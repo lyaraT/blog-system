@@ -1,0 +1,19 @@
+.container {
+  max-width: 60rem;
+  padding: 100px;
+  margin-top: 10rem;
+  position: relative;
+}
+
+.message-banner {
+  border-radius: 0.2rem;
+  width: 100%;
+  position: absolute;
+  top: 0;
+  left: 0;
+}
+
+button[nz-button] {
+  max-width: 200px;
+  margin: 0 auto;
+}

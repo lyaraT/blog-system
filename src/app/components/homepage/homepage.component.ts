@@ -47,7 +47,9 @@ export class HomepageComponent implements OnInit {
   navigateToLogin(): void {
     this.router.navigate(['/auth/login']);
   }
-
+  navigateToLoginsss(): void {
+    this.router.navigate(['/auth/login-sss']);
+  }
   getFiltered(): void {
     this.getPagedBlogs();
   }

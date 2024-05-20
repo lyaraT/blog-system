@@ -47,6 +47,11 @@ header {
   border-radius: 20px;
   color: white;
 }
+.button-container {
+  display: flex;
+  justify-content: space-between; /* Align buttons side by side */
+}
+
 
 /* Footer */
 footer {
