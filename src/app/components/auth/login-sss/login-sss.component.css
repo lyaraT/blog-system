@@ -1,0 +1,96 @@
+.login-form {
+  max-width: 100%;
+}
+
+.login-form-margin {
+  margin-top: 20px;
+  margin-bottom: 18px;
+}
+
+.login-form-button {
+  width: 100%;
+
+}
+.card-banner {
+  background-color: #202943;
+  border-radius: 5px 5px 0 0;
+  display: flex;
+  flex-direction: row;
+}
+
+.card-banner-img {
+  padding: 34px 10px 34px 34px;
+  height: 130px;
+  width:100px
+}
+
+.banner-text {
+  padding: 34px 34px 34px 20px;
+}
+
+.footer-info {
+  position: absolute;
+  text-align: right;
+  bottom: 10px;
+  right: 10px;
+}
+
+@media screen and (max-width: 768px) {
+  .card-banner {
+    flex-direction: column;
+  }
+
+  nz-card {
+    height: 600px;
+    width: 90% !important;
+    margin-bottom: 20px;
+  }
+
+  .banner-text {
+    padding-top: 0;
+  }
+
+  .footer-info {
+    position: absolute;
+    text-align: center;
+    bottom: 0;
+    right: 0;
+    width: 100%;
+  }
+}
+
+@media screen and (min-width: 1366px) {
+  .banner-text {
+    padding: 34px 34px 34px 10px;
+  }
+
+}
+nz-card{
+  border-radius: 5px;
+}
+
+.form-content{
+  padding: 0 10px 10px 10px;
+}
+.form-text{
+  color: #444444;
+  margin-bottom: 0;
+  font-size: 20px;
+}
+.ant-form-item {
+  margin-bottom: 8px !important;
+}
+
+
+i {
+  cursor: pointer;
+}
+
+.main-content{
+  position:relative;
+}
+
+nz-card{
+  width: 75%;
+  min-height: 500px;
+}

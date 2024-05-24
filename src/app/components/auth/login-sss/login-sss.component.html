@@ -1,0 +1,76 @@
+<section id="login">
+  <div class="min-h-screen flex">
+    <div class="w-1/2 relative hidden md:block">
+      <img src="assets/images/mainhomepage.jpg" class="w-full h-full" height="1017" width="1447" alt=""/>
+      <div class="hidden md:block absolute top-0 left-0 w-full h-full bg-black opacity-50"></div>
+    </div>
+
+    <div class="w-full main-content md:w-1/2 p-8 flex justify-center items-center h-full"><!-- Adjusted height -->
+      <nz-card [nzCover]="coverTemplate" style="background:white">
+        <div class="form-content">
+          <div class="mb-7">
+            <h3 class="form-text">User</h3>
+            <p class="font-normal form-text">Login to access services</p>
+          </div>
+          <div>
+            <form [formGroup]="loginForm">
+              <p style="color:#64748B; font-size:20px;" class="font-normal mb-1">Email</p>
+              <nz-form-item>
+                <nz-form-control nzErrorTip="Email is required">
+                  <nz-input-group nzSize="large">
+                    <input type="text" nz-input formControlName="email" placeholder="Email"/>
+                  </nz-input-group>
+                </nz-form-control>
+              </nz-form-item>
+
+              <p style="color:#64748B; font-size:20px;" class="font-normal mb-1">Password</p>
+              <nz-form-item>
+                <nz-form-control nzErrorTip="Password is required">
+                  <nz-input-group [nzSuffix]="suffixTemplate" nzSize="large">
+                    <input [type]="passwordVisible ? 'text' : 'password'" nz-input placeholder="Password" formControlName="password"/>
+                  </nz-input-group>
+                  <ng-template #suffixTemplate>
+                    <i class="cursor-on" nz-icon [nzType]="passwordVisible ? 'eye-invisible' : 'eye'" (click)="passwordVisible = !passwordVisible"></i>
+                  </ng-template>
+                </nz-form-control>
+              </nz-form-item>
+
+              <div nz-row class="login-form-margin">
+                <span style="text-decoration: underline"></span>
+              </div>
+
+              <button nz-button nzSize="large" class="login-form-button" [nzType]="'primary'" (click)="onSubmit()" [disabled]="loginForm.invalid">
+                Login
+              </button>
+            </form>
+            <p class="mt-5 text-2xl font-semibold text-gray-800">
+              Want to become a blogger?
+              <a class="cursor-pointer text-blue-500 hover:underline" (click)="navToRegistration()">Register</a>
+            </p>
+          </div>
+          <button class="text-xl font-semibold bg-blue-900 hover:bg-blue-700 text-white py-2 px-4 rounded-md shadow-md mt-8" (click)="navToHomepage()">
+            Back
+          </button>
+        </div>
+      </nz-card>
+
+      <div class="footer-info">
+        <p class="font-normal text-xs">
+          <span class="font-semibold">Apiit</span> 2024 All Rights Reserved
+        </p>
+      </div>
+    </div>
+
+    <ng-template #coverTemplate>
+      <div class="flex card-banner">
+        <div>
+          <img src="assets/images/apiitlogo.jpg" class="card-banner-img" alt="logo">
+        </div>
+        <div class="banner-text">
+          <p class="font-semibold banner-content-title text-xl" style="color:white; margin-bottom:5px">APIIT BLOG SYSTEM</p>
+          <p class="font-normal banner-content text-xs" style="color:white">INSPIRE LOVE FOR LEARNING</p>
+        </div>
+      </div>
+    </ng-template>
+  </div>
+</section>
