@@ -81,8 +81,15 @@ export class AddEditBlogComponent implements OnInit {
   submit(): void {
     const user = this.authService.getLoggedInUser();
     this.blogForm.get('author')?.enable();
-    this.blogForm.get('imgUrl')?.patchValue(this.files[0].url)
-    this.blogForm.get('pdfUrl')?.patchValue(this.pdf[0].url)
+
+    if(this.files) {
+      this.blogForm.get('imgUrl')?.patchValue(this.files[0]?.url)
+    }
+
+    if (this.pdf) {
+      this.blogForm.get('pdfUrl')?.patchValue(this.pdf[0]?.url)
+    }
+  
 
     if (user.role === 'Admin'){
       this.blogForm.get('status')?.patchValue(1);
