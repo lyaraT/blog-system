@@ -20,6 +20,7 @@ import {ViewProfileComponent} from "./components/view-profile/view-profile.compo
 import {StudentServiceRequestComponent} from "./components/student-service-request/student-service-request.component";
 import { AppointmentsComponent } from './components/appointments/appointments.component';
 import {LoginSssComponent} from "./components/auth/login-sss/login-sss.component";
+import { SlotAllocationComponent } from './components/student-service-request/slot-allocation/slot-allocation.component';
 
 export const routes: Routes = [
   {
@@ -127,6 +128,10 @@ export const routes: Routes = [
       {
         path: 'appointments',
         component: AppointmentsComponent
+      },
+      {
+        path: 'slot-allocation',
+        component: SlotAllocationComponent
       },
     ]
   }

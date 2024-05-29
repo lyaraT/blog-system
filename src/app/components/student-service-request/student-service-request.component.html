@@ -26,11 +26,15 @@
   <ng-container *nzModalContent>
     <nz-date-picker [(ngModel)]="selectedDate" (ngModelChange)="onChangeDate($event)"></nz-date-picker>
     <div class="mt-4">
-      <span *ngFor="let slot of timeSlots">
-        <a *ngIf="checkAvailable(slot)" (click)="setSlot(slot)" [class.selected]="slot === selectedTime">
-          <p class="mt-2 p-4" [style.background-color]="slot === selectedTime ? 'lavenderblush' : 'transparent'">
-            {{slot}}
-          </p>
+      <span *ngFor="let slot of bookedSlots;
+      ">
+        <a  (click)="setSlot(slot)" [class.selected]="slot.id === selectedSlot">
+          <div class="mt-2 p-4 border border-black" [style.background-color]="slot.id === selectedSlot ? 'lavenderblush' : 'transparent'">
+            <p>{{slot.startTime | date:'HH:mm:ss'}}</p>
+            <p>{{slot.endTime | date:'HH:mm:ss'}}</p>
+            <p>{{slot.type}}</p>
+            <p>{{slot.description}}</p>
+          </div>
         </a>
       </span>
     </div>

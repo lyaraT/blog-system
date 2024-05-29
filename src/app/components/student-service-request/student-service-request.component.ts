@@ -13,6 +13,7 @@ import {NzModalComponent, NzModalContentDirective, NzModalModule, NzModalService
 import {NzDatePickerComponent, NzDatePickerModule} from "ng-zorro-antd/date-picker";
 import {SETTINGS} from "../../core/constants/common.settings";
 import { StudentServiceService } from '../../core/services/student-service.service';
+import { SlotService } from '../../core/services/slot.service';
 
 @Component({
   selector: 'app-student-service-request',
@@ -54,19 +55,21 @@ export class StudentServiceRequestComponent implements OnInit {
   constructor(private msg: NzMessageService, private filesService: FileService
     , private formBuilder: FormBuilder, private blogService: BlogService,
               private authService : AuthService, private modalService: NzModalService,
-            private studentReqService: StudentServiceService) {
+            private studentReqService: StudentServiceService,private slotService:SlotService) {
   }
 
   showModal = false;
-  selectedDate: any;
-  selectedTime: any;
+  selectedDate = new Date();
+  selectedTime:any;
   selectedFDate: any;
   timeSlots: any;
+  selectedSlot:any;
   bookedSlots:any;
 
   ngOnInit(): void {
     this.initBlogForm();
     this.timeSlots = SETTINGS.TIME_SLOTS
+    this.getData();
   }
 
   initBlogForm(): void {
@@ -81,28 +84,16 @@ export class StudentServiceRequestComponent implements OnInit {
     this.showModal = true;
   }
 
-  onChangeDate(data:any): void {
-    this.selectedFDate = data.toLocaleDateString('en-US', this.options).replace(/\//g, '-');
-    this.studentReqService.getResponsesByDate({sessionDate:this.selectedFDate}).subscribe((res)=>{
-this.bookedSlots = res.data;
-console.log(this.bookedSlots)
-    })
+  getData(): void {
+    this.slotService.getSlotsPaged({date:this.selectedDate.toISOString().split('T')[0],searchValue:'ddd'}).subscribe((res)=>{
+      this.bookedSlots = res;
+      console.log(this.bookedSlots)
+          })
   }
 
-  checkAvailable(slot:any): boolean {
-    
-if (this.bookedSlots) {
-  for(let x=0; x < this.bookedSlots.length; x++){
-    
-if(this.bookedSlots[x].sessionTime === slot){
-  console.log(this.bookedSlots[x]);;
-  console.log(slot)
-  
-  return false
-}
-  }
-}
-return true
+  onChangeDate(data:any): void {
+    this.selectedDate = data
+    this.getData();
   }
 
   handleOk(): void {
@@ -116,8 +107,11 @@ return true
   }
 
   setSlot(slot : any): void {
-    console.log(slot)
-    this.selectedTime = slot
+    console.log(slot);
+    
+    this.selectedFDate = this.selectedDate.toISOString().split('T')[0];
+    this.selectedSlot = slot.id;
+    this.selectedTime = `${new Date(slot.startTime).toLocaleTimeString()} - ${new Date(slot.endTime).toLocaleTimeString()}`;
   }
 
   submit(): void {
@@ -127,10 +121,12 @@ return true
 
   this.studentReqService.createResponse(this.requestForm.getRawValue()).subscribe(()=>{
     this.requestForm.reset();
-    this.selectedDate = '';
+    this.selectedDate = new Date();
     this.selectedFDate = '';
     this.selectedTime = '';
-  
+  this.slotService.updateSlot({id:this.selectedSlot}).subscribe(()=>{
+    this.ngOnInit();
+  })
       console.log(this.requestForm.getRawValue())
   });
   
