@@ -14,6 +14,7 @@ import {NzDatePickerComponent, NzDatePickerModule} from "ng-zorro-antd/date-pick
 import {SETTINGS} from "../../core/constants/common.settings";
 import { StudentServiceService } from '../../core/services/student-service.service';
 import { SlotService } from '../../core/services/slot.service';
+import { NzMessageModule } from 'ng-zorro-antd/message';
 
 @Component({
   selector: 'app-student-service-request',
@@ -27,6 +28,7 @@ import { SlotService } from '../../core/services/slot.service';
     NzUploadComponent,
     ReactiveFormsModule,
     NzDatePickerModule,
+    NzMessageModule,
     NzModalComponent,
     NzModalModule,
     NzModalContentDirective,
@@ -55,7 +57,8 @@ export class StudentServiceRequestComponent implements OnInit {
   constructor(private msg: NzMessageService, private filesService: FileService
     , private formBuilder: FormBuilder, private blogService: BlogService,
               private authService : AuthService, private modalService: NzModalService,
-            private studentReqService: StudentServiceService,private slotService:SlotService) {
+            private studentReqService: StudentServiceService,private slotService:SlotService,
+          private message: NzMessageService) {
   }
 
   showModal = false;
@@ -115,7 +118,9 @@ export class StudentServiceRequestComponent implements OnInit {
   }
 
   submit(): void {
-    console.log(this.selectedTime)
+
+    if ((this.selectedTime && this.selectedTime.length > 1) && (this.selectedFDate && this.selectedFDate.length > 1)) {
+    console.log('its in')
     this.requestForm.get('sessionTime')?.patchValue(this.selectedTime);
     this.requestForm.get('sessionDate')?.patchValue(this.selectedFDate);
 
@@ -124,11 +129,14 @@ export class StudentServiceRequestComponent implements OnInit {
     this.selectedDate = new Date();
     this.selectedFDate = '';
     this.selectedTime = '';
+    this.message.success('Slot Booked Successfully');
   this.slotService.updateSlot({id:this.selectedSlot}).subscribe(()=>{
     this.ngOnInit();
   })
       console.log(this.requestForm.getRawValue())
   });
-  
+} else {
+this.message.info('Select a booking slot !');
+}
   }
 }
